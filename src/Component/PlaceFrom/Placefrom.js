@@ -3,7 +3,7 @@ import { AiOutlineDown } from 'react-icons/ai';
 import { ImLocation2} from 'react-icons/im';
 import { MdOutlineCancel} from 'react-icons/md';
 import DateTime from '../DateTime/DateTime';
- 
+  
 
  function Placefrom() {
 

@@ -1,0 +1,13 @@
+input {
+  padding-left: 20px;
+}
+
+input::before {
+  content: '\f073'; /* Unicode value for the calendar icon */
+  position: absolute;
+  left: 5px;
+  font-family: 'FontAwesome';
+}
+.btn{
+    background-color: red;
+}
