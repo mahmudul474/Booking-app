@@ -7,14 +7,18 @@ import "./Date.css"
 function DateTime() {
   const [selectedDate, setSelectedDate] = useState(null);
 
+  //date change
   function handleDateChange(date) {
     setSelectedDate(date);
   }
 
+  //delete date
   function handleDelete() {
     setSelectedDate(null);
   }
 
+
+  //date input fielded
   function CustomInput(props) {
     return (
       <div style={{ display: "flex",paddingRight:"24px", marginLeft:"24px", alignItems: "center", width:"full" }}>
@@ -36,6 +40,7 @@ function DateTime() {
 
 
 
+  ///calender designed
     function calendarContainer({ children }) {
     return (
       <div style={{  width:"100%" , marginLeft:"20px", display:"block" }}>
@@ -45,7 +50,7 @@ function DateTime() {
   }
 
 
-
+//calender header
   function renderCustomHeader({ date, decreaseMonth, increaseMonth }) {
     const monthName = date.toLocaleString("default", { month: "long" });
     const year = date.getFullYear();

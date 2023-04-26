@@ -39,7 +39,10 @@ const handleReturndateOpen=()=>{
 
 <div className='my-9  '>
      <form className=' '> 
-        <div className=' px-6 m-auto'>  
+        <div className=' px-6 m-auto'>
+
+
+            {/* first location */}  
          <div className="relative my-5">
   <input
     type="text"
@@ -66,6 +69,8 @@ const handleReturndateOpen=()=>{
     <span><AiOutlineDown/></span>
     </div>
       </div>
+
+      {/* seconde location */}
          <div className="relative my-5">
   <input
     type="text"
@@ -94,12 +99,13 @@ const handleReturndateOpen=()=>{
       </div>
       </div> 
 
-
+{/* start date */}
       <div>
     <DateTime></DateTime>
 </div>
 
 
+{/* return*/}
 
 {
    showreturndate &&   <div className='my-5'> <ReturnDate></ReturnDate> </div>
@@ -107,7 +113,7 @@ const handleReturndateOpen=()=>{
 
 <div className='my-5 mx-6'>
 
-    
+    {/* btn grupe */}
 <div class="inline-flex rounded-md shadow-sm" role="group">
       <button type='button' className='bg-transparent  border focus:border-none border-gray-400 font-bold capitalize p-3  mr-3 focus:bg-green-950 focus:text-white '>SINGLE</button>
       <button onClick={handleReturndateOpen} type='button' className='bg-transparent  border focus:border-none border-gray-400 font-bold capitalize p-3  mr-3 focus:bg-green-950 focus:text-white ' >RETURN</button>

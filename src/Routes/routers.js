@@ -3,6 +3,7 @@ import Main from "../Layot/Main";
 import Home from "../Pages/Home/Home";
 import Booking from "../Pages/Bookingpage/Booking";
 import Bookinglayot from "../Layot/BookinLayot/Bookinglayot";
+import Vehicle from "../Component/Vehicle/Vehicle";
 
 const   routers=createBrowserRouter([
 
@@ -20,7 +21,14 @@ const   routers=createBrowserRouter([
                 children:[{
                     path:"/booking",
                     element:<Booking></Booking>
-                }]
+                }
+               ,
+               {
+                path:"/booking/Vehicle",
+                element:<Vehicle></Vehicle>
+               } 
+            
+            ]
             }
 
 
