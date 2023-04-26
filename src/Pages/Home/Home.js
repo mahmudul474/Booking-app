@@ -9,7 +9,7 @@ function Home() {
       <div className='w-full hidden lg:block md:block xl:block 2xl:block border-emerald-700'>
       <AutoSlider></AutoSlider>
       </div>
-      <div className='w-full h-full  border border-black'>
+      <div className='w-full h-full  border border-black overflow-y-scroll'>
         <Placefrom></Placefrom>
       </div>
     </div>

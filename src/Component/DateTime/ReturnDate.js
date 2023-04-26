@@ -4,7 +4,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { FaCalendarAlt, FaTrash } from "react-icons/fa";
 import "./Date.css"
 
-function DateTime() {
+function ReturnDate() {
   const [selectedDate, setSelectedDate] = useState(null);
 
   function handleDateChange(date) {
@@ -92,4 +92,4 @@ function DateTime() {
   );
 }
 
-export default DateTime;
+export default ReturnDate;

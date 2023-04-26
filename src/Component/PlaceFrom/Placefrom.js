@@ -3,6 +3,7 @@ import { AiOutlineDown } from 'react-icons/ai';
 import { ImLocation2} from 'react-icons/im';
 import { MdOutlineCancel} from 'react-icons/md';
 import DateTime from '../DateTime/DateTime';
+import ReturnDate from '../DateTime/ReturnDate';
   
 
  function Placefrom() {
@@ -20,13 +21,24 @@ import DateTime from '../DateTime/DateTime';
     setInputValue("")
   }
 
+
+///return date
+const [showreturndate,setShowReturndate]=useState(false)
+
+const handleReturndateOpen=()=>{
+    setShowReturndate(true)
+}
+
+
+
+
   return (
 
 
-<div>
+<div className=' '>
 
-<div className='my-9'>
-     <form> 
+<div className='my-9  '>
+     <form className=' '> 
         <div className=' px-6 m-auto'>  
          <div className="relative my-5">
   <input
@@ -81,14 +93,43 @@ import DateTime from '../DateTime/DateTime';
     </div>
       </div>
       </div> 
+
+
+      <div>
+    <DateTime></DateTime>
+</div>
+
+
+
+{
+   showreturndate &&   <div className='my-5'> <ReturnDate></ReturnDate> </div>
+}
+
+<div className='my-5 mx-6'>
+
+    
+<div class="inline-flex rounded-md shadow-sm" role="group">
+      <button type='button' className='bg-transparent  border focus:border-none border-gray-400 font-bold capitalize p-3  mr-3 focus:bg-green-950 focus:text-white '>SINGLE</button>
+      <button onClick={handleReturndateOpen} type='button' className='bg-transparent  border focus:border-none border-gray-400 font-bold capitalize p-3  mr-3 focus:bg-green-950 focus:text-white ' >RETURN</button>
+      <button type='button' className='bg-transparent  border focus:border-none border-gray-400 font-bold capitalize p-3  mr-3 focus:bg-green-950 focus:text-white '>WAIT & RETURN</button>
+</div>
+
+</div>
+
+
     </form>
 </div>
 
 
 
-<div>
-    <DateTime></DateTime>
-</div>
+
+
+
+
+
+
+
+
 
 
 </div>

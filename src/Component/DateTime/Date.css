@@ -1,13 +1,48 @@
-input {
-  padding-left: 20px;
+.custom-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #ccc;
 }
 
-input::before {
-  content: '\f073'; /* Unicode value for the calendar icon */
-  position: absolute;
-  left: 5px;
-  font-family: 'FontAwesome';
+.prev-month-btn,
+.next-month-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
 }
-.btn{
-    background-color: red;
+
+.prev-month-btn:hover,
+.next-month-btn:hover {
+  color: #555;
+}
+
+.month-year {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+.month {
+  text-transform: uppercase;
+  margin-right: 5px;
+}
+
+.year {
+  margin-left: 5px;
+}
+
+
+.next{
+    width: "10px";
+    height: "10px";
+
+}
+.react-datepicker__month-container {
+    background-color: #00441b;
+     
 }
