@@ -1,5 +1,10 @@
 import React, { useState } from 'react'
-import { FaChevronDown, FaTimes } from 'react-icons/fa';
+import { FaChevronDown, FaDog, FaTimes } from 'react-icons/fa';
+
+import { BsFillPersonFill } from 'react-icons/bs';
+ 
+import {BiChild} from 'react-icons/bi';
+
 
  function Vehicle() {
 //
@@ -66,14 +71,20 @@ const [isOpen, setIsOpen] = useState(false);
 
 
 {/*top input*/}
-    <div className='flex justify-center items-center  '>
+    <div className='flex justify-center lg:flex-row flex-col my-4 items-center  '>
 {/*  top input one  */}
-    <div className="relative  mr-2 w-full">
+    <div className="relative  mr-2 my-4 w-full">
       <button
-        className="bg-gray-100 w-full text-gray-800 font-semibold py-2 px-4  justify-between  inline-flex items-center"
+        className="bg-gray-100 w-full text-gray-800 font-semibold py-2 px-4  justify-between  flex items-center"
         onClick={handleToggle}
       >
-        <span>Dropdown</span>
+         <div className='flex justify-between w-full  '>  
+            <p className=' text-2xl flex justify-center items-center  '><span className='mr-3 p-1 bg-slate-300 h-full'><BsFillPersonFill></BsFillPersonFill></span> 1</p>
+            <p className=' text-2xl flex justify-center items-center '><span className='mr-3 p-1 bg-slate-300 '> <BiChild></BiChild></span> 2</p>
+            <p className=' text-2xl flex justify-center items-center mr-5 '><span className='mr-3 p-1 bg-slate-300'><BiChild></BiChild></span> 1</p>
+            
+            
+           </div>
         <FaChevronDown className="ml-2" />
       </button>
       {isOpen && (
@@ -97,12 +108,18 @@ const [isOpen, setIsOpen] = useState(false);
 
 {/* top seconde input */}
 
-  <div className="relative w-full ml-2">
+  <div className="relative w-full ">
       <button
         className="bg-gray-100 w-full text-gray-800 font-semibold py-2 px-4 justify-between inline-flex items-center"
         onClick={handleToggle2}
       >
-        <span>Dropdown</span>
+        <div className='flex justify-between w-full  '>  
+            <p className=' text-2xl flex justify-center items-center  '><span className='mr-3 p-1 bg-slate-300 h-full'><BsFillPersonFill></BsFillPersonFill></span> 1</p>
+            <p className=' text-2xl flex justify-center items-center '><span className='mr-3 p-1 bg-slate-300 '> <BiChild></BiChild></span> 2</p>
+            <p className=' text-2xl flex justify-center items-center mr-5 '><span className='mr-3 p-1 bg-slate-300'><BiChild></BiChild></span> 1</p>
+            
+            
+           </div>
         <FaChevronDown className="ml-2" />
       </button>
       {isOpen2 && (
@@ -138,8 +155,8 @@ const [isOpen, setIsOpen] = useState(false);
       </button>
       {isOpen3 && (
         <div className="absolute right-0 mt-2 py-2 w-full bg-white rounded-md shadow-xl z-10">
-          <div className="flex justify-between px-4">
-            <span className="font-semibold">Dropdown</span>
+          <div className="flex justify-end px-4">
+          
             <FaTimes className="cursor-pointer" onClick={handleClose3} />
           </div>
           <a href="#" className="block px-4 py-2 text-gray-800 hover:bg-indigo-500 hover:text-white border-t border-unique1" onClick={handleItemClick1}>
@@ -154,7 +171,28 @@ const [isOpen, setIsOpen] = useState(false);
         </div>
       )}
     </div>
+<div>
+    
 
+
+<div >
+    <div className="flex flex-col lg:flex-row h-48  border border-gray-500 ">
+   
+  <img src="https://i.ibb.co/xYz05rL/WRRPslidewqr12.jpg" alt="Image" className="w-full  h-48 p-[1px] object-cover lg:w-1/4"/>
+
+  
+  <div className="hidden lg:block lg:w-5/6">
+   <h1 className='text-center font-bold mt-3 text-2xl capitalize'>Twelve Seater</h1>
+
+  
+  </div>
+</div>
+
+</div>
+
+ 
+
+</div>
 
 
 

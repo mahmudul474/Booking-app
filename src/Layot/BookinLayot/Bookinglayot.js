@@ -10,11 +10,11 @@ function Bookinglayot() {
      
      <div className="flex  flex-col flex-wrap xl:flex-row-reverse  md:flex-row-reverse  lg:flex-row-reverse  ">
 
-        <div className="hidden sm:block w-1/3 bg-green-500">
+        <div className="hidden sm:block w-1/3 bg-green-500 ">
            sidenar
       </div>
      
-      <div className="w-full sm:w-2/3 bg-blue-500">
+      <div className="w-full sm:w-2/3 p-8   bg-blue-500">
       <Outlet></Outlet>
       </div>
       
