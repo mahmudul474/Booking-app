@@ -4,6 +4,8 @@ import Home from "../Pages/Home/Home";
 import Booking from "../Pages/Bookingpage/Booking";
 import Bookinglayot from "../Layot/BookinLayot/Bookinglayot";
 import Vehicle from "../Component/Vehicle/Vehicle";
+import Passenger from "../Component/Passenger/Passenger";
+import Payment from "../Component/Payment/Payment";
 
 const   routers=createBrowserRouter([
 
@@ -24,9 +26,17 @@ const   routers=createBrowserRouter([
                 }
                ,
                {
-                path:"/booking/Vehicle",
+                path:"/booking/vehicle",
                 element:<Vehicle></Vehicle>
-               } 
+               },
+               {
+                path:"/booking/passenger",
+                element:<Passenger></Passenger>
+               },
+               {
+                path:"/booking/payment",
+                element:<Payment></Payment>
+               }
             
             ]
             }

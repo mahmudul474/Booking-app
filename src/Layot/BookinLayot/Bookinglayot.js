@@ -1,20 +1,21 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
+import Sidebar from '../../Component/Sidebar/Sidebar'
 
 function Bookinglayot() {
 
 
     return (
     <div  className=' py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl "'>
-    <h1>navbar</h1>
+    
      
      <div className="flex  flex-col flex-wrap xl:flex-row-reverse  md:flex-row-reverse  lg:flex-row-reverse  ">
 
-        <div className="hidden sm:block w-1/3 bg-green-500 ">
-           sidenar
+        <div className="hidden sm:block w-1/3 bg-green-950 ">
+           <Sidebar></Sidebar>
       </div>
      
-      <div className="w-full sm:w-2/3 p-8   bg-blue-500">
+      <div className="w-full sm:w-2/3 p-8   bg-slate-300">
       <Outlet></Outlet>
       </div>
       

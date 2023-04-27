@@ -7,7 +7,7 @@ import ReturnDate from '../DateTime/ReturnDate';
 import { Link } from 'react-router-dom';
   
 
- function Placefrom() {
+ function HomePlaceinfo() {
 
   const [inputValue, setInputValue] = useState("");
   const [showIcon, setShowIcon] = useState(false);
@@ -122,7 +122,13 @@ const handleReturndateOpen=()=>{
 </div>
 
 </div>
+<div className='flex justify-end items-end mr-5'>
+<Link to="/booking">
+    <button className='btn bg-green-950 w-36 hover:bg-green-950  text-white font-bold capitalize'>NEXT</button>
 
+</Link>
+
+</div>
 
     </form>
 
@@ -133,13 +139,7 @@ const handleReturndateOpen=()=>{
  
 
 
-<div className='flex justify-end items-end'>
-<Link to="/booking/vehicle">
-    <button className='btn bg-green-950 w-36 hover:bg-green-950  text-white font-bold capitalize'>NEXT</button>
 
-</Link>
-
-</div>
 
 
 </div>
@@ -168,4 +168,4 @@ const handleReturndateOpen=()=>{
    
   )
 }
-export default Placefrom
+export default HomePlaceinfo

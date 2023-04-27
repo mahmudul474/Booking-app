@@ -2,6 +2,7 @@ import React from 'react'
 
 import Placefrom from '../../Component/PlaceFrom/Placefrom'
 import AutoSlider from '../../Component/Slider/AutoSlider'
+import HomePlaceinfo from '../../Component/HomePlaceInfo/HomePlaceinfo'
 
 function Home() {
   return (
@@ -10,7 +11,7 @@ function Home() {
       <AutoSlider></AutoSlider>
       </div>
       <div className='w-full h-full  border border-black overflow-y-scroll'>
-        <Placefrom></Placefrom>
+        <HomePlaceinfo></HomePlaceinfo>
       </div>
     </div>
   )

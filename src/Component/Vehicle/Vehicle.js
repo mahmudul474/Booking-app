@@ -4,6 +4,8 @@ import { FaChevronDown, FaDog, FaTimes } from 'react-icons/fa';
 import { BsFillPersonFill } from 'react-icons/bs';
  
 import {BiChild} from 'react-icons/bi';
+import { Link } from 'react-router-dom';
+import { AiOutlineLeft } from 'react-icons/ai';
 
 
  function Vehicle() {
@@ -64,8 +66,8 @@ const [isOpen, setIsOpen] = useState(false);
     <div>
         {/*  title*/}
     <div className='my-7'>
-          <h1>Select Car</h1>
-       <span className='bg-orange-700  mt-3 w-10 h-1 block'></span>
+          <h1 className='text-xl capitalize font-bold '>Select Car</h1>
+       <span className='bg-orange-700  mt-3 w-14 h-[2px] block'></span>
     </div>
 
 
@@ -174,15 +176,22 @@ const [isOpen, setIsOpen] = useState(false);
 <div>
     
 
-
+{/*car*/}
 <div >
     <div className="flex flex-col lg:flex-row h-48  border border-gray-500 ">
    
-  <img src="https://i.ibb.co/xYz05rL/WRRPslidewqr12.jpg" alt="Image" className="w-full  h-48 p-[1px] object-cover lg:w-1/4"/>
+  <img src="https://i.ibb.co/xYz05rL/WRRPslidewqr12.jpg" alt="Image" className="w-full  h-48  pb-[2px] object-cover lg:w-1/4"/>
 
-  
+  {/*car title */}
   <div className="hidden lg:block lg:w-5/6">
-   <h1 className='text-center font-bold mt-3 text-2xl capitalize'>Twelve Seater</h1>
+    <div className='flex justify-between items-center p-5'>
+    <h1 className='text-center font-bold text-2xl capitalize'>Twelve Seater</h1>
+     <div className='flex '>  
+            <p className=' text-xl flex justify-center items-center mr-2'><span className='mr-2 p-1  '> <BiChild></BiChild></span> 2</p>
+            <p className=' text-xl flex justify-center items-center '><span className='mr-2 p-1 '> <BiChild></BiChild></span> 2</p>
+           </div>
+    </div>
+   
 
   
   </div>
@@ -196,6 +205,30 @@ const [isOpen, setIsOpen] = useState(false);
 
 
 
+   
+   
+   
+   
+   
+   
+   
+   <div className='flex justify-end items-end mt-6'>
+
+    
+<Link to="/booking">
+    <a className='flex justify-center items-center p-3 hover:underline'> <span><AiOutlineLeft/></span> Previous</a>
+
+</Link>
+<Link to="/booking/passenger">
+    <button className='btn bg-green-950 w-36 hover:bg-green-950  text-white font-bold capitalize'>NEXT</button>
+
+</Link>
+
+</div>
+   
+   
+   
+   
     </div>
   )
 }
