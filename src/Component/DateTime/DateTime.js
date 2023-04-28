@@ -4,9 +4,9 @@ import "react-datepicker/dist/react-datepicker.css";
 import { FaCalendarAlt, FaTrash } from "react-icons/fa";
 import "./Date.css"
 
-function DateTime() {
-  const [selectedDate, setSelectedDate] = useState(null);
-
+function DateTime({selectedDate, setSelectedDate}) {
+ 
+ 
   //date change
   function handleDateChange(date) {
     setSelectedDate(date);
@@ -23,6 +23,9 @@ function DateTime() {
     return (
       <div style={{ display: "flex",paddingRight:"24px", marginLeft:"24px", alignItems: "center", width:"full" }}>
         <span style={{width:"40px" , height:"100%", alignItems:"center"  ,margin:"16px", borderRight:'1px solid black' , position:"absolute",paddingRight:"6px", paddingTop:"16px" }}><img src="https://i.ibb.co/7y66wZs/calendar-1.png"/></span>
+       
+       
+       
         <input  style={{
             paddingTop:"20px", 
             paddingBottom:"20px",

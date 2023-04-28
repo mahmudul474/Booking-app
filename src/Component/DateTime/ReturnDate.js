@@ -4,8 +4,8 @@ import "react-datepicker/dist/react-datepicker.css";
 import { FaCalendarAlt, FaTrash } from "react-icons/fa";
 import "./Date.css"
 
-function ReturnDate() {
-  const [selectedDate, setSelectedDate] = useState(null);
+function ReturnDate({selectedDate, setSelectedDate}) {
+ 
 
   function handleDateChange(date) {
     setSelectedDate(date);
