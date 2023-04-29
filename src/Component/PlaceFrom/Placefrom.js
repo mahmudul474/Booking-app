@@ -6,6 +6,8 @@ import DateTime from "../DateTime/DateTime";
 import ReturnDate from "../DateTime/ReturnDate";
 import { Link, useNavigate } from "react-router-dom";
 import DataContext from "../../Context/BookingDataContex";
+import { Autocomplete, LoadScript } from "@react-google-maps/api";
+import { API_KEY } from "../../config";
 
 function Placefrom() {
 
@@ -14,17 +16,21 @@ function Placefrom() {
 const navigate=useNavigate()
 const {data}=useContext(DataContext)
 const startLocation=data && data.origin
-const toValues=data && data.destination
+const endLocation=data && data.destination
 const juernyDate=data && data.date
 const backDate=data && data.returnDate
   //start locations
+ 
 
 
     
-  const [startLocationValue, setStartLocationValue] = useState('');
+  const [startLocationValue, setStartLocationValue] = useState(data && data.origin);
+
+   console.log(startLocationValue,"eta sart location value")
+
   const [showIcon, showStartlocationIcon] = useState(false);
 
-console.log(startLocationValue ,'start locations va')
+
 
 
   const handleStartLocationChange = (event) => {
@@ -59,6 +65,7 @@ console.log(startLocationValue ,'start locations va')
   const [showreturndate, setShowReturndate] = useState(false);
   const handleReturndateOpen = () => {
     setShowReturndate(true);
+    handlesaveBookingData()
   };
 
   //singeleTrip
@@ -68,6 +75,7 @@ console.log(startLocationValue ,'start locations va')
     setReturnDate(null);
     setShowReturndate(false);
     setSingelValue("Single");
+    handlesaveBookingData()
   };
 
   //wait and return
@@ -77,6 +85,7 @@ console.log(startLocationValue ,'start locations va')
     setReturnDate(null);
     setShowReturndate(false);
     setWaitandReturnValue("wait and return");
+    handlesaveBookingData()
   };
 
 
@@ -84,11 +93,11 @@ console.log(startLocationValue ,'start locations va')
 
 //save data 
 
-  const handlesaveBookingData = (e) => {
+  const handlesaveBookingData = () => {
     const data = {
-      origin: startLocationValue ? startLocationValue : "",
-      destination: endLocationValue ? endLocationValue : "",
-      date: startDate ? startDate : "",
+      origin: startLocationValue ? startLocationValue : startLocation,
+      destination: endLocationValue ? endLocationValue : endLocation,
+      date: startDate ? startDate :juernyDate,
       returnDate: returnDate ? returnDate : singelvalue,
       returnDateValue: returnDate && 2,
       waitandReturn: waitandreturnValue ? waitandreturnValue : singelvalue,
@@ -103,20 +112,27 @@ console.log(startLocationValue ,'start locations va')
     
   };
   return (
+    <LoadScript 
+    googleMapsApiKey={API_KEY}
+    libraries={["places"]}
+
+    >
     <div className=" ">
       <div className="my-9  ">
-        <form className=" " onSubmit={handlesaveBookingData}>
+        <form className=" "  onClick={handlesaveBookingData}>
           <div className=" px-6 m-auto">
             {/* first location */}
             <div className="relative my-5">
+              <Autocomplete>
               <input
                 required
                 type="text"
-                value={fromvalues}
-                onChange={handleStartLocationChange}
+                  defaultValue={startLocation}
+                onBlur={handleStartLocationChange}
                 className="border border-gray-400 rounded-sm   px-16 py-5  text-md font-bold   w-full"
                 placeholder="PICKUP ADDRESS"
               />
+              </Autocomplete>
 
          {startLocationValue && (
                 <button
@@ -143,14 +159,17 @@ console.log(startLocationValue ,'start locations va')
 
             {/* seconde location */}
             <div className="relative my-5">
+            
+            <Autocomplete>
               <input
                 required
                 type="text"
-                defaultValue={toValues}
-                onChange={handleEndLocationChange}
+                defaultValue={endLocation}
+                onBlur={handleEndLocationChange}
                 className="border border-gray-400 rounded-sm   px-16 py-5  text-md font-bold   w-full"
                 placeholder="DESTINATION ADDRESS"
               />
+              </Autocomplete>
  
               {endLocationValue && (
                 <button
@@ -234,6 +253,7 @@ console.log(startLocationValue ,'start locations va')
         </form>
       </div>
     </div>
+    </LoadScript>
   );
 }
 export default Placefrom;

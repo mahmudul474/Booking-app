@@ -20,9 +20,9 @@ const location = {
   lng:  90.39933293482622,
 };
 
-function Map({  }) {
+function Map({ distance,setDistance }) {
 
- const [distance,setDistance]=useState(null)
+
  
 
   const { data } = useContext(DataContext);
