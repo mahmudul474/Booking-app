@@ -4,6 +4,7 @@ import routers from "./Routes/routers";
 import DataContext from "./Context/BookingDataContex";
 import { useEffect, useState } from "react";
 import { loadState, saveState } from "./utilitis";
+import { Toaster } from "react-hot-toast";
  
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
       <DataContext.Provider value={{ data, setData, category, setCategory, userInfo, setUserInfo }}>
        
         <RouterProvider router={routers}></RouterProvider>
+        <Toaster/>
       
       </DataContext.Provider>
     </div>

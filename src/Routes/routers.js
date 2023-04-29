@@ -6,8 +6,11 @@ import Bookinglayot from "../Layot/BookinLayot/Bookinglayot";
 import Vehicle from "../Component/Vehicle/Vehicle";
 import Passenger from "../Component/Passenger/Passenger";
 import Payment from "../Component/Payment/Payment";
-import Register from "../Register";
 import Login from "../Shared/Login/Login";
+import Register from "../Shared/Register";
+import DashBoard from "../Pages/DashBoard/DashBoard";
+import DashbordLayot from "../Pages/DashBoard/DashbordLayot/DashbordLayot";
+import AddCar from "../Pages/DashBoard/Car/AddCar/AddCar";
 
 
 
@@ -52,6 +55,20 @@ const   routers=createBrowserRouter([
             {
                 path:'/login',
                 element:<Login></Login>
+            },
+            {
+                path:"/dashboard",
+                element:<DashBoard></DashBoard>,
+                children:[
+                    {
+                        path:"/dashboard",
+                        element:<DashbordLayot></DashbordLayot>
+                    },
+                    {
+                        path:"/dashboard/addCar",
+                        element:<AddCar></AddCar>
+                    }
+                ]
             }
           
 
