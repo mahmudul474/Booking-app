@@ -75,7 +75,7 @@ function ReturnDate({selectedDate, setSelectedDate}) {
         timeFormat="HH:mm"
         timeIntervals={30}
         dateFormat="yyyy/MM/dd HH:mm"
-        placeholderText="Select a date and time"
+        placeholderText="Return Date & Time"
         showPopperArrow={false}
         popperModifiers={{
           preventOverflow: {

@@ -6,6 +6,7 @@ import "./Date.css"
 
 function DateTime({selectedDate, setSelectedDate}) {
  
+
  
   //date change
   function handleDateChange(date) {
@@ -23,23 +24,24 @@ function DateTime({selectedDate, setSelectedDate}) {
     return (
       <div style={{ display: "flex",paddingRight:"24px", marginLeft:"24px", alignItems: "center", width:"full" }}>
         <span style={{width:"40px" , height:"100%", alignItems:"center"  ,margin:"16px", borderRight:'1px solid black' , position:"absolute",paddingRight:"6px", paddingTop:"16px" }}><img src="https://i.ibb.co/7y66wZs/calendar-1.png"/></span>
-       
-       
-       
-        <input  style={{
-            paddingTop:"20px", 
+        <input
+          style={{
+            paddingTop:"20px",
             paddingBottom:"20px",
-             paddingLeft:"65px",
-              width:"100%" ,
-              fontWeight:"bold",
-              
-               border:"1px solid black"
-               
-              }}  type="text" {...props} />
+            paddingLeft:"65px",
+            width:"100%",
+            fontWeight:"bold",
+            border:"1px solid black"
+          }}
+          type="text"
+          defaultValue={''} // Set the default value here
+          {...props}
+        />
         {selectedDate && <FaTrash onClick={handleDelete} style={{ marginLeft: "5px", position:"absolute", right:"35", cursor: "pointer" }} />}
       </div>
     );
   }
+  
 
 
 
@@ -83,7 +85,7 @@ function DateTime({selectedDate, setSelectedDate}) {
         timeFormat="HH:mm"
         timeIntervals={30}
         dateFormat="yyyy/MM/dd HH:mm"
-        placeholderText="Select a date and time"
+        placeholderText='Date & Time'
         showPopperArrow={false}
         popperModifiers={{
           preventOverflow: {

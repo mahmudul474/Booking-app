@@ -6,6 +6,11 @@ import Bookinglayot from "../Layot/BookinLayot/Bookinglayot";
 import Vehicle from "../Component/Vehicle/Vehicle";
 import Passenger from "../Component/Passenger/Passenger";
 import Payment from "../Component/Payment/Payment";
+import Register from "../Register";
+import Login from "../Shared/Login/Login";
+
+
+
 
 const   routers=createBrowserRouter([
 
@@ -39,7 +44,16 @@ const   routers=createBrowserRouter([
                }
             
             ]
+            },
+            {
+                path:'/register',
+                element:<Register></Register>
+            },
+            {
+                path:'/login',
+                element:<Login></Login>
             }
+          
 
 
         ]

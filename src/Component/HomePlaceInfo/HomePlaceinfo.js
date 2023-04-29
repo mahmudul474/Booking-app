@@ -1,83 +1,112 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { AiOutlineDown } from "react-icons/ai";
 import { ImLocation2 } from "react-icons/im";
 import { MdOutlineCancel } from "react-icons/md";
 import DateTime from "../DateTime/DateTime";
 import ReturnDate from "../DateTime/ReturnDate";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import DataContext from "../../Context/BookingDataContex";
 
 function HomePlaceinfo() {
 
-  //start locations 
-  const [startLocationValue, setStartLocationValue] = useState("");
-  const [showIcon,  showStartlocationIcon] = useState(false);
 
-  const  handleStartLocationChange = (event) => {
+
+const navigate=useNavigate()
+  //start locations
+  const [startLocationValue, setStartLocationValue] = useState("");
+  const [showIcon, showStartlocationIcon] = useState(false);
+
+  const handleStartLocationChange = (event) => {
     setStartLocationValue(event.target.value);
-     showStartlocationIcon(true);
+    showStartlocationIcon(true);
   };
 
-  const  handleClearStartLocation = () => {
+  const handleClearStartLocation = () => {
     setStartLocationValue("");
   };
 
-   
-//end locations 
+  //end locations
 
-const [endLocationValue, setEndLocationValue] = useState("");
-const [showEndicon,  showEndtlocationIcon] = useState(false);
+  const [endLocationValue, setEndLocationValue] = useState("");
+  const [showEndicon, showEndtlocationIcon] = useState(false);
+ 
 
-const  handleEndLocationChange = (event) => {
-  setEndLocationValue(event.target.value);
-  showEndtlocationIcon(true);
-};
+  const handleEndLocationChange = (event) => {
+    setEndLocationValue(event.target.value);
+    showEndtlocationIcon(true);
+  };
 
-const  handleClearEndLocation = () => {
-  setEndLocationValue("");
-};
+  const handleClearEndLocation = () => {
+    setEndLocationValue("");
+  };
 
-
-//date  pick up date
-const [startDate, setStartDate] = useState(null);
+  //date  pick up date
+  const [startDate, setStartDate] = useState(null);
 
   ///return date
-  const [returnDate,setReturnDate]=useState(null)
+  const [returnDate, setReturnDate] = useState(null);
   const [showreturndate, setShowReturndate] = useState(false);
   const handleReturndateOpen = () => {
     setShowReturndate(true);
   };
 
   //singeleTrip
-  const [singelvalue ,setSingelValue]=useState("")
-   
-  const handlesingleTrip=()=>{
-   setReturnDate(null) 
-    setShowReturndate(false)
-   console.log('singel value ')
-  }
+  const [singelvalue, setSingelValue] = useState("");
 
-  //wait and return 
-   const [waitandreturnValue, setWaitandReturnValue]=useState('')
+  const handlesingleTrip = () => {
+    setReturnDate(null);
+    setShowReturndate(false);
+    setSingelValue("Single");
+  };
 
-   const  handleWaitAndReturn=()=>{
-    setReturnDate(null)
-     setShowReturndate(false)
-   }
+  //wait and return
+  const [waitandreturnValue, setWaitandReturnValue] = useState("");
+
+  const handleWaitAndReturn = () => {
+    setReturnDate(null);
+    setShowReturndate(false);
+    setWaitandReturnValue("wait and return");
+  };
 
 
 
+
+//save data 
+
+  const handlesaveBookingData = (e) => {
+    e.preventDefault();
+
+    const data = {
+      from: startLocationValue ? startLocationValue : "",
+      to: endLocationValue ? endLocationValue : "",
+      date: startDate ? startDate : "",
+      returnDate: returnDate ? returnDate : singelvalue,
+      returnDateValue: returnDate && 2,
+      waitandReturn: waitandreturnValue ? waitandreturnValue : singelvalue,
+      waitandreturnValue: waitandreturnValue && 2,
+      single: singelvalue && singelvalue,
+      bydefoultTrip: "single",
+    };
+    localStorage.setItem(
+      "myData",
+      JSON.stringify({ data,   })
+    );
+    navigate('/booking')
+    
+  };
 
   return (
     <div className=" ">
       <div className="my-9  ">
-        <form className=" ">
+        <form className=" " onSubmit={handlesaveBookingData}>
           <div className=" px-6 m-auto">
             {/* first location */}
             <div className="relative my-5">
               <input
+                required
                 type="text"
                 value={startLocationValue}
-                onChange={ handleStartLocationChange}
+                onChange={handleStartLocationChange}
                 className="border border-gray-400 rounded-sm   px-16 py-5  text-md font-bold   w-full"
                 placeholder="PICKUP ADDRESS"
               />
@@ -85,7 +114,7 @@ const [startDate, setStartDate] = useState(null);
               {startLocationValue && (
                 <button
                   className="absolute top-1/2 right-9 transform -translate-y-1/2"
-                  onClick={ handleClearStartLocation}
+                  onClick={handleClearStartLocation}
                 >
                   <span className="w-10">
                     <MdOutlineCancel></MdOutlineCancel>
@@ -108,6 +137,7 @@ const [startDate, setStartDate] = useState(null);
             {/* seconde location */}
             <div className="relative my-5">
               <input
+                required
                 type="text"
                 value={endLocationValue}
                 onChange={handleEndLocationChange}
@@ -141,7 +171,10 @@ const [startDate, setStartDate] = useState(null);
 
           {/* start date */}
           <div>
-            <DateTime selectedDate={startDate} setSelectedDate={setStartDate}></DateTime>
+            <DateTime
+              selectedDate={startDate}
+              setSelectedDate={setStartDate}
+            ></DateTime>
           </div>
 
           {/* return*/}
@@ -149,14 +182,18 @@ const [startDate, setStartDate] = useState(null);
           {showreturndate && (
             <div className="my-5">
               {" "}
-              <ReturnDate selectedDate={returnDate} setSelectedDate={setReturnDate}></ReturnDate>{" "}
+              <ReturnDate
+                selectedDate={returnDate}
+                setSelectedDate={setReturnDate}
+              ></ReturnDate>{" "}
             </div>
           )}
 
           <div className="my-5 mx-6">
             {/* btn grupe */}
             <div class="inline-flex rounded-md shadow-sm" role="group">
-              <button  onClick={handlesingleTrip}
+              <button
+                onClick={handlesingleTrip}
                 type="button"
                 className="bg-transparent  border focus:border-none border-gray-400 font-bold capitalize p-3  mr-3 focus:bg-green-950 focus:text-white "
               >
@@ -170,7 +207,7 @@ const [startDate, setStartDate] = useState(null);
                 RETURN
               </button>
               <button
-              onClick={handleWaitAndReturn}
+                onClick={handleWaitAndReturn}
                 type="button"
                 className="bg-transparent  border focus:border-none border-gray-400 font-bold capitalize p-3  mr-3 focus:bg-green-950 focus:text-white "
               >
@@ -179,11 +216,12 @@ const [startDate, setStartDate] = useState(null);
             </div>
           </div>
           <div className="flex justify-end items-end mr-5">
-            <Link to="/booking">
-              <button className="btn bg-green-950 w-36 hover:bg-green-950  text-white font-bold capitalize">
-                NEXT
-              </button>
-            </Link>
+            <button
+              type="submit"
+              className="btn bg-green-950 w-36 hover:bg-green-950  text-white font-bold capitalize"
+            >
+              NEXT
+            </button>
           </div>
         </form>
       </div>
