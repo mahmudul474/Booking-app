@@ -13,8 +13,8 @@ function Placefrom() {
 
 const navigate=useNavigate()
 const {data}=useContext(DataContext)
-const fromvalues=data && data.from
-const toValues=data && data.to
+const startLocation=data && data.origin
+const toValues=data && data.destination
 const juernyDate=data && data.date
 const backDate=data && data.returnDate
   //start locations
@@ -85,11 +85,9 @@ console.log(startLocationValue ,'start locations va')
 //save data 
 
   const handlesaveBookingData = (e) => {
-    e.preventDefault();
-
     const data = {
-      from: startLocationValue ? startLocationValue : "",
-      to: endLocationValue ? endLocationValue : "",
+      origin: startLocationValue ? startLocationValue : "",
+      destination: endLocationValue ? endLocationValue : "",
       date: startDate ? startDate : "",
       returnDate: returnDate ? returnDate : singelvalue,
       returnDateValue: returnDate && 2,
@@ -100,12 +98,10 @@ console.log(startLocationValue ,'start locations va')
     };
     localStorage.setItem(
       "myData",
-      JSON.stringify({ data,   })
+      JSON.stringify({ data   })
     );
-    navigate('/booking')
     
   };
-
   return (
     <div className=" ">
       <div className="my-9  ">
@@ -116,13 +112,13 @@ console.log(startLocationValue ,'start locations va')
               <input
                 required
                 type="text"
-                defaultValue={fromvalues}
+                value={fromvalues}
                 onChange={handleStartLocationChange}
                 className="border border-gray-400 rounded-sm   px-16 py-5  text-md font-bold   w-full"
                 placeholder="PICKUP ADDRESS"
               />
 
-              {/* {startLocationValue && (
+         {startLocationValue && (
                 <button
                   className="absolute top-1/2 right-9 transform -translate-y-1/2"
                   onClick={handleClearStartLocation}
@@ -131,7 +127,7 @@ console.log(startLocationValue ,'start locations va')
                     <MdOutlineCancel></MdOutlineCancel>
                   </span>
                 </button>
-              )} */}
+              )}  
 
               <div className="absolute inset-y-0 border border-gray-600  left-0 flex items-center px-2">
                 <span className="w-10 h-10 m-auto  ">
@@ -155,7 +151,7 @@ console.log(startLocationValue ,'start locations va')
                 className="border border-gray-400 rounded-sm   px-16 py-5  text-md font-bold   w-full"
                 placeholder="DESTINATION ADDRESS"
               />
-{/*  
+ 
               {endLocationValue && (
                 <button
                   className="absolute top-1/2 right-9 transform -translate-y-1/2"
@@ -165,7 +161,7 @@ console.log(startLocationValue ,'start locations va')
                     <MdOutlineCancel></MdOutlineCancel>
                   </span>
                 </button>
-              )} */}
+              )}
 
               <div className="absolute inset-y-0 border border-gray-600  left-0 flex items-center px-2">
                 <span className="w-10 h-10 m-auto  ">

@@ -6,25 +6,19 @@ import DateTime from "../DateTime/DateTime";
 import ReturnDate from "../DateTime/ReturnDate";
 import { Link, useNavigate } from "react-router-dom";
 import DataContext from "../../Context/BookingDataContex";
+import { Autocomplete, LoadScript } from "@react-google-maps/api";
+import { API_KEY } from "../../config";
 
 function HomePlaceinfo() {
 
-
+const {setData}=useContext(DataContext)
 
 const navigate=useNavigate()
   //start locations
   const [startLocationValue, setStartLocationValue] = useState("");
   const [showIcon, showStartlocationIcon] = useState(false);
 
-  const handleStartLocationChange = (event) => {
-    setStartLocationValue(event.target.value);
-    showStartlocationIcon(true);
-  };
-
-  const handleClearStartLocation = () => {
-    setStartLocationValue("");
-  };
-
+  
   //end locations
 
   const [endLocationValue, setEndLocationValue] = useState("");
@@ -46,8 +40,11 @@ const navigate=useNavigate()
   ///return date
   const [returnDate, setReturnDate] = useState(null);
   const [showreturndate, setShowReturndate] = useState(false);
+
   const handleReturndateOpen = () => {
     setShowReturndate(true);
+    handlesaveBookingData() 
+
   };
 
   //singeleTrip
@@ -57,6 +54,8 @@ const navigate=useNavigate()
     setReturnDate(null);
     setShowReturndate(false);
     setSingelValue("Single");
+  
+    handlesaveBookingData ()
   };
 
   //wait and return
@@ -66,19 +65,14 @@ const navigate=useNavigate()
     setReturnDate(null);
     setShowReturndate(false);
     setWaitandReturnValue("wait and return");
+    handlesaveBookingData()
   };
 
-
-
-
 //save data 
-
   const handlesaveBookingData = (e) => {
-    e.preventDefault();
-
     const data = {
-      from: startLocationValue ? startLocationValue : "",
-      to: endLocationValue ? endLocationValue : "",
+      origin: startLocationValue ? startLocationValue : "",
+      destination: endLocationValue ? endLocationValue : "",
       date: startDate ? startDate : "",
       returnDate: returnDate ? returnDate : singelvalue,
       returnDateValue: returnDate && 2,
@@ -89,29 +83,43 @@ const navigate=useNavigate()
     };
     localStorage.setItem(
       "myData",
-      JSON.stringify({ data,   })
+      JSON.stringify({ data   })
     );
-    navigate('/booking')
     
   };
 
+
+   
+
+  
+
   return (
-    <div className=" ">
+  <LoadScript
+  googleMapsApiKey={API_KEY}
+  libraries={["places"]}
+  >
+  
+  <div className=" ">
       <div className="my-9  ">
-        <form className=" " onSubmit={handlesaveBookingData}>
+        <form className=" " onClick={handlesaveBookingData} >
           <div className=" px-6 m-auto">
             {/* first location */}
             <div className="relative my-5">
+          
+            <Autocomplete>
               <input
                 required
                 type="text"
-                value={startLocationValue}
-                onChange={handleStartLocationChange}
+                
+                onBlur={(e)=>{
+                  setStartLocationValue(e.target.value)
+                  handlesaveBookingData()
+                }}
                 className="border border-gray-400 rounded-sm   px-16 py-5  text-md font-bold   w-full"
                 placeholder="PICKUP ADDRESS"
-              />
+              /></Autocomplete>
 
-              {startLocationValue && (
+              {/* {startLocationValue && (
                 <button
                   className="absolute top-1/2 right-9 transform -translate-y-1/2"
                   onClick={handleClearStartLocation}
@@ -120,7 +128,7 @@ const navigate=useNavigate()
                     <MdOutlineCancel></MdOutlineCancel>
                   </span>
                 </button>
-              )}
+              )} */}
 
               <div className="absolute inset-y-0 border border-gray-600  left-0 flex items-center px-2">
                 <span className="w-10 h-10 m-auto  ">
@@ -136,16 +144,20 @@ const navigate=useNavigate()
 
             {/* seconde location */}
             <div className="relative my-5">
+              <Autocomplete>
               <input
                 required
                 type="text"
-                value={endLocationValue}
-                onChange={handleEndLocationChange}
+               
+                onBlur={(e)=>{
+                  setEndLocationValue(e.target.value)
+                  handlesaveBookingData()
+                }}
                 className="border border-gray-400 rounded-sm   px-16 py-5  text-md font-bold   w-full"
                 placeholder="DESTINATION ADDRESS"
               />
-
-              {endLocationValue && (
+               </Autocomplete>
+              {/* {endLocationValue && (
                 <button
                   className="absolute top-1/2 right-9 transform -translate-y-1/2"
                   onClick={handleClearEndLocation}
@@ -154,7 +166,7 @@ const navigate=useNavigate()
                     <MdOutlineCancel></MdOutlineCancel>
                   </span>
                 </button>
-              )}
+              )} */}
 
               <div className="absolute inset-y-0 border border-gray-600  left-0 flex items-center px-2">
                 <span className="w-10 h-10 m-auto  ">
@@ -188,6 +200,10 @@ const navigate=useNavigate()
               ></ReturnDate>{" "}
             </div>
           )}
+
+
+
+ 
 
           <div className="my-5 mx-6">
             {/* btn grupe */}
@@ -226,6 +242,11 @@ const navigate=useNavigate()
         </form>
       </div>
     </div>
+  
+  
+  </LoadScript>
   );
+
+
 }
 export default HomePlaceinfo;

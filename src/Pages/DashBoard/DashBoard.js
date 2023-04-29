@@ -8,7 +8,7 @@ export default function DashBoard() {
      <button className='btn mr-3 my-3 bg-green-950 hover:bg-green-950'>users</button>
      <button className='btn mr-3 my-3 bg-green-950 hover:bg-green-950'>orders</button>
      <button className='btn mr-3 my-3 bg-green-950 hover:bg-green-950'>cars</button>
-     <Link to="/dashboard/addCar my-3 bg-green-950 hover:bg-green-950">
+     <Link to="/dashboard/addCar ">
      <button className='btn mr-3 my-3 bg-green-950 hover:bg-green-950'>Add car</button></Link>
       
     
