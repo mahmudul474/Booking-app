@@ -8,13 +8,23 @@ import {BsCash, BsCreditCard2Back}from "react-icons/bs"
     //card open 
  const [isCardOpen, setIsCardOpen] = useState(false);
   const [cardDetails, setCardDetails] = useState({ cardNumber: '', cvv: '' });
+   
 
   const handleCardClick = () => {
     setIsCardOpen(!isCardOpen);
+    
   };
 
   const handleCashClick = () => {
     setIsCardOpen(false);
+   const cash ={
+    payment:"cash"
+   }
+    localStorage.setItem(
+      "payment",
+      JSON.stringify({ cash })
+    );
+
   };
 
   const handleCardInputChange = (event) => {

@@ -5,8 +5,9 @@ import DataContext from '../../Context/BookingDataContex'
 
 function Sidebar() {
  
-  const {data}=useContext(DataContext)
+  const {data,category}=useContext(DataContext)
    const [distance,setDistance]=useState(null)
+   console.log(category)
 
   return (
     <div className=''>
@@ -29,7 +30,7 @@ function Sidebar() {
          
 
          <h2 className=''>CAR TYPE</h2>
-         <h3 className='mb-3'>BMW</h3>
+         <h3 className='mb-3'>{category && category.carName}</h3>
           <h2>PAYMENT METHOD</h2>
           <h4 className='mb-3'>card</h4>
           <h2>ADDITIONAL DETAILS</h2>

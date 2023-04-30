@@ -14,10 +14,10 @@ const containerStyle = {
   margin:"auto",
 };
 
- 
+  
 const location = {
-  lat: 23.81095272006377,
-  lng:  90.39933293482622,
+  lat: 51.512290509678216,
+  lng: -0.15035981586596867
 };
 
 function Map({ distance,setDistance }) {
@@ -42,7 +42,7 @@ function Map({ distance,setDistance }) {
      libraries={["places"]}
     >
       <div className="">
-      <GoogleMap mapContainerStyle={containerStyle} center={location} zoom={20}>
+      <GoogleMap mapContainerStyle={containerStyle} center={location} zoom={10}>
         {data && data.origin !== "" && data.destination !== "" && (
           <>
             <DirectionsService

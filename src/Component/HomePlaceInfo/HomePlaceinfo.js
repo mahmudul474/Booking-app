@@ -7,7 +7,7 @@ import ReturnDate from "../DateTime/ReturnDate";
 import { Link, useNavigate } from "react-router-dom";
 import DataContext from "../../Context/BookingDataContex";
 import { Autocomplete, LoadScript } from "@react-google-maps/api";
-import { API_KEY } from "../../config";
+import { API_KEY, places } from "../../config";
 
 function HomePlaceinfo() {
 
@@ -70,6 +70,10 @@ const navigate=useNavigate()
 
 //save data 
   const handlesaveBookingData = (e) => {
+
+     
+
+
     const data = {
       origin: startLocationValue ? startLocationValue : "",
       destination: endLocationValue ? endLocationValue : "",
@@ -81,10 +85,10 @@ const navigate=useNavigate()
       single: singelvalue && singelvalue,
       bydefoultTrip: "single",
     };
-    localStorage.setItem(
-      "myData",
-      JSON.stringify({ data   })
-    );
+   
+
+    setData(data)
+    
     
   };
 
@@ -96,12 +100,12 @@ const navigate=useNavigate()
   return (
   <LoadScript
   googleMapsApiKey={API_KEY}
-  libraries={["places"]}
+  libraries={places}
   >
   
   <div className=" ">
       <div className="my-9  ">
-        <form className=" " onClick={handlesaveBookingData} >
+        <div className=" " onClick={handlesaveBookingData} >
           <div className=" px-6 m-auto">
             {/* first location */}
             <div className="relative my-5">
@@ -232,14 +236,16 @@ const navigate=useNavigate()
             </div>
           </div>
           <div className="flex justify-end items-end mr-5">
+          
+          <Link to="/booking">
             <button
-              type="submit"
+              
               className="btn bg-green-950 w-36 hover:bg-green-950  text-white font-bold capitalize"
             >
               NEXT
-            </button>
+            </button></Link>
           </div>
-        </form>
+        </div>
       </div>
     </div>
   

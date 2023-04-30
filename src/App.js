@@ -7,27 +7,30 @@ import { loadState, saveState } from "./utilitis";
 import { Toaster } from "react-hot-toast";
 
 function App() {
-  const [data, setData] = useState(null);
+    const [data, setData] = useState(null);
   const [category, setCategory] = useState(null);
   const [userInfo, setUserInfo] = useState(null);
-  console.log(data)
 
   useEffect(() => {
-    const localData = JSON.parse(localStorage.getItem('myData'));
-
-    if (localData) {
-      setData(localData.data);
-      setCategory(localData.category);
-      setUserInfo(localData.userInfo);
+    const initialState = loadState();
+    if (initialState) {
+      setData(initialState.data);
+      setCategory(initialState.category);
+      setUserInfo(initialState.userInfo);
     }
   }, []);
+ 
 
+  // Save the state to localStorage whenever it changes
+  useEffect(() => {
+  if(data===null && category===null && userInfo === null){
+    console.log("please provide data")
+  }else{
+saveState({ data, category, userInfo });
+  }
 
-
-
-
-
-
+    
+  }, [data, category, userInfo]);
 
 
  
