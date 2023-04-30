@@ -5,9 +5,14 @@ export default function DashBoard() {
   
     
   const dashborditem=<>
-     <button className='btn mr-3 my-3 bg-green-950 hover:bg-green-950'>users</button>
+  <Link to="/dashboard">
+     <button className='btn mr-3 my-3 bg-green-950 hover:bg-green-950'>users</button></Link>
+     <Link to="/dashboard/orders">
      <button className='btn mr-3 my-3 bg-green-950 hover:bg-green-950'>orders</button>
+     </Link>
+     <Link to="/dashboard/allcars">
      <button className='btn mr-3 my-3 bg-green-950 hover:bg-green-950'>cars</button>
+     </Link>
      <Link to="/dashboard/addCar ">
      <button className='btn mr-3 my-3 bg-green-950 hover:bg-green-950'>Add car</button></Link>
       

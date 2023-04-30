@@ -12,6 +12,8 @@ import DashBoard from "../Pages/DashBoard/DashBoard";
 import DashbordLayot from "../Pages/DashBoard/DashbordLayot/DashbordLayot";
 import AddCar from "../Pages/DashBoard/Car/AddCar/AddCar";
 import Confirmation from "../Shared/Confirmations/Confirmation";
+import Allcars from "../Pages/DashBoard/Car/AllCars/Allcars";
+import Allorders from "../Pages/DashBoard/Orders/Allorders";
 
 
 
@@ -71,6 +73,14 @@ const   routers=createBrowserRouter([
                     {
                         path:"/dashboard/addCar",
                         element:<AddCar></AddCar>
+                    },
+                    {
+                        path:"/dashboard/allcars",
+                        element:<Allcars></Allcars>
+                    },
+                    {
+                        path:"/dashboard/orders",
+                        element:<Allorders></Allorders>
                     }
                 ]
             }
