@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { GoogleMap, LoadScript, DirectionsService, DirectionsRenderer, DistanceMatrixService } from "@react-google-maps/api";
 import { API_KEY } from "../../config";
 import DataContext from "../../Context/BookingDataContex";
@@ -21,13 +21,14 @@ const location = {
   lng: -0.15035981586596867
 };
 
-function Map({ distance,setDistance }) {
+function Map( ) {
 
-
+const {distance,setDistance }=useContext(DataContext)
  
 
   const { data } = useContext(DataContext);
 
+ 
   const [directionResponse, setDirectionResponse] = useState(null);
 
   const calculateDistance = (response) => {
@@ -37,6 +38,9 @@ function Map({ distance,setDistance }) {
       setDistance(distanceInKm);
     }
   };
+
+
+  
 
   return (
     <LoadScript googleMapsApiKey={API_KEY}

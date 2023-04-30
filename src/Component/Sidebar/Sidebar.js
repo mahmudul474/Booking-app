@@ -1,20 +1,21 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Map from '../Map/Map'
 import DataContext from '../../Context/BookingDataContex'
 
 function Sidebar() {
  
-  const {data,category,userInfo}=useContext(DataContext)
-   const [distance,setDistance]=useState(null)
+  const {data,category,userInfo,distance}=useContext(DataContext)
+
    
+    
 
   return (
     <div className=''>
       
 <div className="max-w-sm bg-white border  mx-auto  my-6  px-8 border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
     <div className=' flex justify-start  items-center '>
-       <Map distance={distance} setDistance={setDistance}></Map>
+       <Map ></Map>
     </div>
     <div className="pb-8">
          <h2 className='mb-3'>From : {data && data.origin}</h2>
@@ -37,7 +38,7 @@ function Sidebar() {
           <h2>ADDITIONAL DETAILS</h2>
           <h4>- Tel: {userInfo && userInfo?.phone}</h4>
           <hr/>
-           <p>Distance: {distance} K.M</p>
+           <p>Distance: {distance && distance} K.M</p>
           <hr/>
           <h2>Total: Tk</h2>
           <hr/>

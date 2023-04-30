@@ -10,6 +10,8 @@ function App() {
     const [data, setData] = useState(null);
   const [category, setCategory] = useState(null);
   const [userInfo, setUserInfo] = useState(null);
+     const [distance,setDistance]=useState(null)
+ 
    
 
   useEffect(() => {
@@ -38,7 +40,7 @@ saveState({ data, category, userInfo });
   return (
     <div className="m-auto">
       <DataContext.Provider
-        value={{ data, setData, category, setCategory, userInfo, setUserInfo }}
+        value={{ data, setData, category, setCategory, userInfo, setUserInfo ,distance,setDistance}}
       >
         <RouterProvider router={routers}></RouterProvider>
         <Toaster />
