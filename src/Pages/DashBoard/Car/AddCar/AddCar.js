@@ -1,5 +1,8 @@
 import React, { useContext, useState } from "react";
 import { UserinfoContext } from "../../../../Context/AuthContext/UserContext";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
+
 
 export default function AddCar() {
   const { user } = useContext(UserinfoContext);
@@ -27,7 +30,7 @@ export default function AddCar() {
         alert("internet  problem");
       });
   };
-
+const navigate=useNavigate()
   const handleAddCar = event => {
     event.preventDefault();
 
@@ -54,7 +57,10 @@ export default function AddCar() {
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data);
+        if(data.acknowledged){
+          toast.success("car added successfully")
+          navigate("/dashboard/allcars")
+        };
       });
   };
 
