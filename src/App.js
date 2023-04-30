@@ -10,6 +10,7 @@ function App() {
     const [data, setData] = useState(null);
   const [category, setCategory] = useState(null);
   const [userInfo, setUserInfo] = useState(null);
+   
 
   useEffect(() => {
     const initialState = loadState();

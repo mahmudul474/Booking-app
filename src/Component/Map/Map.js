@@ -9,9 +9,10 @@ import DataContext from "../../Context/BookingDataContex";
 
 
 const containerStyle = {
-  width: "200px",
+  width: "300px",
   height: "200px",
-  margin:"auto",
+  marginTop:"40px",
+  marginBottom:"40px",
 };
 
   

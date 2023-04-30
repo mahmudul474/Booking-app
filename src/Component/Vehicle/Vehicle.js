@@ -29,11 +29,9 @@ function Vehicle() {
 
 
   const handleselectcar=(car)=>{
-     localStorage.setItem(
-      "myData",
-      JSON.stringify({ car  })
-    );
+
      setBtncolor(car._id)
+      setCategory(car)
   }
 
   return (

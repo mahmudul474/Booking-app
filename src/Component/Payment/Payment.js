@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import {BsCash, BsCreditCard2Back}from "react-icons/bs" 
+import DataContext from '../../Context/BookingDataContex';
 
   function Payment() {
 
@@ -17,13 +18,11 @@ import {BsCash, BsCreditCard2Back}from "react-icons/bs"
 
   const handleCashClick = () => {
     setIsCardOpen(false);
-   const cash ={
+   const payment ={
     payment:"cash"
    }
-    localStorage.setItem(
-      "payment",
-      JSON.stringify({ cash })
-    );
+    
+  
 
   };
 
@@ -36,13 +35,6 @@ import {BsCash, BsCreditCard2Back}from "react-icons/bs"
     event.preventDefault();
     console.log(cardDetails);
   };
-
-
-
-
-
-
-
 
   return (
     <div>
@@ -142,7 +134,9 @@ import {BsCash, BsCreditCard2Back}from "react-icons/bs"
       </div>
     </div>
 
-
+<div className='flex justify-end  items-center my-5'>
+  <button className='w-32 bg-green-950 hover:bg-green-950 btn'>Place Order</button>
+</div>
 
     </div>
   )
