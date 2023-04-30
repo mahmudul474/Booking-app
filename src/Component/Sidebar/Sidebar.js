@@ -9,6 +9,9 @@ function Sidebar() {
 
    
     
+  const  totalwithreturn=parseFloat(distance * (category && category.priceperKM) * 2).toFixed(2)
+    const singlePrice=parseFloat(distance * (category && category.priceperKM)  ).toFixed(2)
+    console.log(singlePrice,totalwithreturn)
 
   return (
     <div className=''>
@@ -38,9 +41,13 @@ function Sidebar() {
           <h2>ADDITIONAL DETAILS</h2>
           <h4>- Tel: {userInfo && userInfo?.phone}</h4>
           <hr/>
-           <p>Distance: {distance && distance} K.M</p>
+           <p>Distance: {distance && (distance).toFixed(2)} K.M</p>
           <hr/>
-          <h2>Total: Tk</h2>
+          <h2>Total: 
+
+ {data&&  data.returnDate==="" && data.waitandReturn==="" ? singlePrice:totalwithreturn}
+
+Tk</h2>
           <hr/>
           <p>HAVE A PROMO? PLEASE <Link className='underline'>SIGN IN</Link> TO USE</p>
          
