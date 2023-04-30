@@ -1,11 +1,12 @@
 import React, { useContext } from 'react'
 import { UserinfoContext } from '../../Context/AuthContext/UserContext'
 import Google from '../GoogleLogin/Google';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Login() {
 
     const {login}=useContext(UserinfoContext)
+    const navigate=useNavigate()
 
 
     const handleLogin=(event)=>{
@@ -19,6 +20,7 @@ export default function Login() {
       .then((result=>{
         const user=result.user
        console.log(user)
+       navigate("/")
     }))
 
 

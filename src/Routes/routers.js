@@ -11,6 +11,7 @@ import Register from "../Shared/Register";
 import DashBoard from "../Pages/DashBoard/DashBoard";
 import DashbordLayot from "../Pages/DashBoard/DashbordLayot/DashbordLayot";
 import AddCar from "../Pages/DashBoard/Car/AddCar/AddCar";
+import Confirmation from "../Shared/Confirmations/Confirmation";
 
 
 
@@ -44,6 +45,9 @@ const   routers=createBrowserRouter([
                {
                 path:"/booking/payment",
                 element:<Payment></Payment>
+               },{
+                path:"/booking/confirmation",
+                element:<Confirmation></Confirmation>
                }
             
             ]

@@ -68,6 +68,9 @@ const navigate=useNavigate()
     handlesaveBookingData()
   };
 
+
+   
+
 //save data 
   const handlesaveBookingData = (e) => {
 
@@ -77,11 +80,11 @@ const navigate=useNavigate()
     const data = {
       origin: startLocationValue ? startLocationValue : "",
       destination: endLocationValue ? endLocationValue : "",
-      date: startDate ? startDate : "",
-      returnDate: returnDate ? returnDate : singelvalue,
-      returnDateValue: returnDate && 2,
+      date: startDate ? startDate.toLocaleString() : "",
+      returnDate: returnDate ? returnDate.toLocaleString() : singelvalue,
+     
       waitandReturn: waitandreturnValue ? waitandreturnValue : singelvalue,
-      waitandreturnValue: waitandreturnValue && 2,
+      
       single: singelvalue && singelvalue,
       bydefoultTrip: "single",
     };

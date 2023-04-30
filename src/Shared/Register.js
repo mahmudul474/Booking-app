@@ -1,13 +1,13 @@
 import React, { useContext } from 'react'
 import { UserinfoContext } from '../Context/AuthContext/UserContext'
 import Google from './GoogleLogin/Google'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
  
 
 function Register() {
   
   const {createUser,uptadeteuser}=useContext(UserinfoContext)
-
+const   navigate=useNavigate()
 
 
   const handleRegister=(event)=>{
@@ -27,6 +27,8 @@ createUser(email,password)
   uptadeteuser({displayName:name})
   .then(()=>{
     console.log(user)
+    navigate("/")
+
   })
 })
 

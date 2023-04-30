@@ -99,11 +99,11 @@ const backDate=data && data.returnDate
     const data = {
       origin: startLocationValue ? startLocationValue : startLocation,
       destination: endLocationValue ? endLocationValue : endLocation,
-      date: startDate ? startDate :juernyDate,
-      returnDate: returnDate ? returnDate : singelvalue,
-      returnDateValue: returnDate && 2,
+      date: startDate ? startDate.toLocaleString() :juernyDate,
+      returnDate: returnDate ? returnDate.toLocaleString() : singelvalue,
+     
       waitandReturn: waitandreturnValue ? waitandreturnValue : singelvalue,
-      waitandreturnValue: waitandreturnValue && 2,
+  
       single: singelvalue && singelvalue,
       bydefoultTrip: "single",
     };
@@ -111,6 +111,8 @@ const backDate=data && data.returnDate
      setData(data)
     
   };
+
+
 
 
 

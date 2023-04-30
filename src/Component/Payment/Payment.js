@@ -1,12 +1,26 @@
 import React, { useContext, useState } from 'react'
 import {BsCash, BsCreditCard2Back}from "react-icons/bs" 
 import DataContext from '../../Context/BookingDataContex';
+import { toast } from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
+ 
 
   function Payment() {
 
+const navigate=useNavigate()
+
+const { data, setData, category, setCategory, userInfo, setUserInfo ,distance,setDistance}=useContext(DataContext)
+   
+   
+  const  totalwithreturn=parseFloat(distance * (category && category.priceperKM) * 2).toFixed(2)
+    const singlePrice=parseFloat(distance * (category && category.priceperKM)  ).toFixed(2)
+    
+const price=(data &&  data.returnDate==="" && data.waitandReturn==="" ? singlePrice:totalwithreturn)
 
 
-    //card open 
+
+
+//card open 
  const [isCardOpen, setIsCardOpen] = useState(false);
   const [cardDetails, setCardDetails] = useState({ cardNumber: '', cvv: '' });
    
@@ -33,8 +47,42 @@ import DataContext from '../../Context/BookingDataContex';
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(cardDetails);
+
+   const bookinginfo={
+    pickup:data && data.origin,
+    drop: data && data.destination,
+     date:data && data.date,
+     returnDate:data && data.returnDate,
+     user:userInfo && userInfo,
+     car:category&& category,
+     price
+
+   }
+     
+     fetch("http://localhost:5000/order",
+     {
+      method:"POST",
+        headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(bookinginfo)
+     })
+     .then(res=>res.json())
+     .then(data=>{
+      console.log(data)
+      if(data.acknowledged){
+        toast.success("order successfully done")
+        navigate("/booking/confirmation")
+      }
+     })
+    
   };
+
+
+
+   
+
+
 
   return (
     <div>
@@ -55,7 +103,7 @@ import DataContext from '../../Context/BookingDataContex';
 
 
      
-      <button onClick={handleCashClick} type="button" className=" border border-gray-500 font-bold   focus:bg-gray-500 text-black focus:outline-none text-sm px-5 py-2.5 text-center inline-flex items-center  mr-2 mb-2">
+      <button onClick={handleSubmit} type="button" className=" border border-gray-500 font-bold   focus:bg-gray-500 text-black focus:outline-none text-sm px-5 py-2.5 text-center inline-flex items-center  mr-2 mb-2">
   <span className="w-4 h-4 mr-1"><BsCash/></span> 
  CASH
 </button>
@@ -135,7 +183,7 @@ import DataContext from '../../Context/BookingDataContex';
     </div>
 
 <div className='flex justify-end  items-center my-5'>
-  <button className='w-32 bg-green-950 hover:bg-green-950 btn'>Place Order</button>
+  <button onClick={handleSubmit} className='w-32 bg-green-950 hover:bg-green-950 btn'>Place Order</button>
 </div>
 
     </div>
