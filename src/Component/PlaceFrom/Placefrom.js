@@ -133,7 +133,7 @@ const backDate=data && data.returnDate
                 placeholder="PICKUP ADDRESS"
               />
               </Autocomplete>
-
+{/* 
          {startLocationValue && (
                 <button
                   className="absolute top-1/2 right-9 transform -translate-y-1/2"
@@ -143,7 +143,7 @@ const backDate=data && data.returnDate
                     <MdOutlineCancel></MdOutlineCancel>
                   </span>
                 </button>
-              )}  
+              )}   */}
 
               <div className="absolute inset-y-0 border border-gray-600  left-0 flex items-center px-2">
                 <span className="w-10 h-10 m-auto  ">
@@ -171,7 +171,7 @@ const backDate=data && data.returnDate
               />
               </Autocomplete>
  
-              {endLocationValue && (
+              {/* {endLocationValue && (
                 <button
                   className="absolute top-1/2 right-9 transform -translate-y-1/2"
                   onClick={handleClearEndLocation}
@@ -180,7 +180,7 @@ const backDate=data && data.returnDate
                     <MdOutlineCancel></MdOutlineCancel>
                   </span>
                 </button>
-              )}
+              )} */}
 
               <div className="absolute inset-y-0 border border-gray-600  left-0 flex items-center px-2">
                 <span className="w-10 h-10 m-auto  ">
