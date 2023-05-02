@@ -1,18 +1,22 @@
 import React, { useContext } from 'react'
 import { UserinfoContext } from '../../Context/AuthContext/UserContext'
 import { GoogleAuthProvider } from 'firebase/auth';
+import {   useNavigate } from 'react-router-dom';
 
 export default function Google() {
  const {googleLogin }=useContext(UserinfoContext)
 
-
+ const navigate=useNavigate()
  
 const handleGoogle=()=>{
     const provider = new GoogleAuthProvider();
   googleLogin(provider).then((result)=>{
     const user=result.user
+
+
     console.log(user)
-    
+
+    navigate("/")
   })
 }
 

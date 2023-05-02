@@ -59,7 +59,7 @@ const price=(data &&  data.returnDate==="" && data.waitandReturn==="" ? singlePr
 
    }
      
-     fetch("http://localhost:5000/order",
+     fetch("https://booking-server-devsobuj910.vercel.app/order",
      {
       method:"POST",
         headers: {

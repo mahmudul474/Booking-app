@@ -48,7 +48,7 @@ const navigate=useNavigate()
   };
 
   const savecar = carinfo => {
-    fetch(`http://localhost:5000/car`, {
+    fetch(`https://booking-server-devsobuj910.vercel.app/car`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
