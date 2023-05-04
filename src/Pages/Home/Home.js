@@ -1,21 +1,35 @@
-import React from 'react'
+import React from "react";
 
-import Placefrom from '../../Component/PlaceFrom/Placefrom'
-import AutoSlider from '../../Component/Slider/AutoSlider'
-import HomePlaceinfo from '../../Component/HomePlaceInfo/HomePlaceinfo'
+import Placefrom from "../../Component/PlaceFrom/Placefrom";
+import AutoSlider from "../../Component/Slider/AutoSlider";
+import HomePlaceinfo from "../../Component/HomePlaceInfo/HomePlaceinfo";
+import Wellcome from "./HomeComponent/WellCome/Wellcome";
+import About from "./HomeComponent/About/About";
+import BookOurCar from "./HomeComponent/BookOurCar/BookOurCar";
 
 function Home() {
   return (
-    <div   className='flex justify-center  lg:flex-row xl:flex-row md:flex-row  flex-col items-center h-[590px] '>
-      <div className='w-full hidden lg:block md:block xl:block 2xl:block border-emerald-700'>
-      <AutoSlider></AutoSlider>
+    <>
+      <div className="flex justify-center  lg:flex-row xl:flex-row md:flex-row  flex-col items-center h-[500px] ">
+        <div className="w-full hidden lg:block md:block xl:block 2xl:block border-emerald-700">
+          <AutoSlider></AutoSlider>
+        </div>
+        <div className="w-full h-full  border border-black overflow-y-scroll">
+          <HomePlaceinfo></HomePlaceinfo>
+        </div>
       </div>
-      <div className='w-full h-full  border border-black overflow-y-scroll'>
-        <HomePlaceinfo></HomePlaceinfo>
+
+      <div className="bg-green-950 text-white my-16 py-16">
+        <Wellcome></Wellcome>
       </div>
-    </div>
-  )
+      <div className="   px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 ">
+        <About></About>
+      </div>
+      <div className="  text-white  bg-green-950 py-16">
+        <BookOurCar></BookOurCar>
+      </div>
+    </>
+  );
 }
 
-
-export default Home
+export default Home;

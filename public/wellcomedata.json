@@ -1,0 +1,33 @@
+[
+    {
+        "_id":0,
+        "icon":"https://i.ibb.co/JFjqCbF/airplane-mode.png",
+        "name":"AIRPORTS",
+        "about":"Experience hassle-free travel with our airport transfer in London."
+    },
+    {
+        "_id":1,
+        "icon":"https://i.ibb.co/56kPjbv/corporation.png",
+        "name":"CORPORATE",
+        "about":"Make a long-lasting impression with our corporate transportation."
+    },
+    {
+        "_id":2,
+        "icon":"https://i.ibb.co/s3pjChz/wedding-car.png",
+        "name":"WEDDINGS",
+        "about":"Make your wedding memorable by using our wedding transportation services."
+    },
+    {
+        "_id":3,
+        "icon":"https://i.ibb.co/nj4pHKG/distance.png",
+        "name":"TOURS",
+        "about":"Explore the city in style with our top tour services."
+    },
+    {
+        "_id":4,
+        "icon":"https://i.ibb.co/vZt3hdq/image.png",
+        "name":"EVENTS",
+        "about":"Let us handle the transportation for your next special event."
+    } 
+    
+]

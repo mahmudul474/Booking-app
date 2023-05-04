@@ -21,7 +21,7 @@ const AutoSlider = () => {
 
   return (
     <div className="w-full  h-full">
-      <img className="max-w-full h-[590px] " src={images[activeIndex]} alt={`Slide ${activeIndex + 1}`} />
+      <img className="max-w-full h-[500px] " src={images[activeIndex]} alt={`Slide ${activeIndex + 1}`} />
     </div>
   );
 };
