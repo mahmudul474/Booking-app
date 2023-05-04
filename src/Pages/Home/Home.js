@@ -6,6 +6,8 @@ import HomePlaceinfo from "../../Component/HomePlaceInfo/HomePlaceinfo";
 import Wellcome from "./HomeComponent/WellCome/Wellcome";
 import About from "./HomeComponent/About/About";
 import BookOurCar from "./HomeComponent/BookOurCar/BookOurCar";
+import OurBenifits from "./HomeComponent/OurBenifits/OurBenifits";
+import WhyChooseUs from "./HomeComponent/WhyChoosUS/WhyChooseUs";
 
 function Home() {
   return (
@@ -28,6 +30,14 @@ function Home() {
       <div className="  text-white  bg-green-950 py-16">
         <BookOurCar></BookOurCar>
       </div>
+      <div className="   my-16 py-16  ">
+        <OurBenifits></OurBenifits>
+      </div>
+
+       <div>
+        <WhyChooseUs></WhyChooseUs>
+       </div>
+
     </>
   );
 }
