@@ -2,116 +2,114 @@ import React, { useContext } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { UserinfoContext } from "../../Context/AuthContext/UserContext";
-import logo from "../../asates/mainlogo.png"
+import logo from "../../asates/mainlogo.png";
 
 const Nav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const { user,logout } = useContext(UserinfoContext);
+  const { user, logout } = useContext(UserinfoContext);
   console.log(user);
 
-     const handlelogout=()=>{
-      logout(()=>{})
-     }
-
+  const handlelogout = () => {
+    logout(() => {});
+  };
 
   const navitem = (
     <>
-     <li
-          aria-label="Product pricing"
-          title="Product pricing"
-          className=" cursor-pointer  font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400"
-        >
-         Home
-        </li>
+      <li
+        aria-label="Product pricing"
+        title="Product pricing"
+        className=" cursor-pointer  font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400"
+      >
+        Home
+      </li>
 
-        <li
-          aria-label="Product pricing"
-          title="Product pricing"
-          className=" cursor-pointer  font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400"
-        >
+      <li
+        aria-label="Product pricing"
+        title="Product pricing"
+        className=" cursor-pointer  font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400"
+      >
         Chauffer Vehicles
-        </li>
+      </li>
 
-        <li
-          aria-label="Product pricing"
-          title="Product pricing"
-          className=" cursor-pointer  font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400"
-        >
-         Day Tour
-        </li>
+      <li
+        aria-label="Product pricing"
+        title="Product pricing"
+        className=" cursor-pointer  font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400"
+      >
+        Day Tour
+      </li>
 
+      <Link to="/contact">
         <li
           aria-label="Product pricing"
           title="Product pricing"
           className=" cursor-pointer  font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400"
         >
-         Contact us
-        </li>
-        <li
-          aria-label="Product pricing"
-          title="Product pricing"
-          className=" cursor-pointer  font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400"
-        >
-         <button className=" cursor-pointer  bg-green-950 btn hover:bg-green-950">Book Now</button>
-        </li>
-
-    {
-      user? <> 
-      <Link to="/dashboard">
-        <li
-          aria-label="Product pricing"
-          title="Product pricing"
-          className=" cursor-pointer  font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400"
-        >
-         Dashboard
-        </li>
-        </Link>
-        <li
-          aria-label="Product pricing"
-          title="Product pricing"
-          className=" cursor-pointer  font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400"
-        >
-         { user?.displayName}
-        </li>
-      
-        <li onClick={handlelogout}
-          aria-label="Product pricing"
-          title="Product pricing"
-          className=" cursor-pointer  font-medium tracking-wide text-red-800 transition-colors duration-200 hover:text-deep-purple-accent-400"
-        >
-          logout
-        </li>
-      
-      
-      
-       </>:
-      
-      <>
-
-   <Link to="/register">
-        <li
-          aria-label="Product pricing"
-          title="Product pricing"
-          className=" cursor-pointer  font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400"
-        >
-          Register
+          Contact us
         </li>
       </Link>
+      <li
+        aria-label="Product pricing"
+        title="Product pricing"
+        className=" cursor-pointer  font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400"
+      >
+        <button className=" cursor-pointer  bg-green-950 btn hover:bg-green-950">
+          Book Now
+        </button>
+      </li>
 
+      {user ? (
+        <>
+          <Link to="/dashboard">
+            <li
+              aria-label="Product pricing"
+              title="Product pricing"
+              className=" cursor-pointer  font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400"
+            >
+              Dashboard
+            </li>
+          </Link>
+          <li
+            aria-label="Product pricing"
+            title="Product pricing"
+            className=" cursor-pointer  font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400"
+          >
+            {user?.displayName}
+          </li>
 
-      <Link to="/login">
-        <li
-          aria-label="Product pricing"
-          title="Product pricing"
-          className=" cursor-pointer  font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400"
-        >
-          Login
-        </li>
-      </Link>
-      </>
-    }
-     
+          <li
+            onClick={handlelogout}
+            aria-label="Product pricing"
+            title="Product pricing"
+            className=" cursor-pointer  font-medium tracking-wide text-red-800 transition-colors duration-200 hover:text-deep-purple-accent-400"
+          >
+            logout
+          </li>
+        </>
+      ) : (
+        <>
+          <Link to="/register">
+            <li
+              aria-label="Product pricing"
+              title="Product pricing"
+              className=" cursor-pointer  font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400"
+            >
+              Register
+            </li>
+          </Link>
+
+          <Link to="/login">
+            <li
+              aria-label="Product pricing"
+              title="Product pricing"
+              className=" cursor-pointer  font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400"
+            >
+              Login
+            </li>
+          </Link>
+        </>
+      )}
     </>
   );
 
@@ -125,10 +123,12 @@ const Nav = () => {
             title="Company"
             className=" cursor-pointer  inline-flex items-center mr-8"
           >
-               <img  className=" cursor-pointer  h-16 " src={logo} alt="logo"/>
+            <img className=" cursor-pointer  h-16 " src={logo} alt="logo" />
           </a>
         </div>
-        <ul className=" cursor-pointer  flex items-center hidden space-x-8 lg:flex">{navitem}</ul>
+        <ul className=" cursor-pointer  flex items-center hidden space-x-8 lg:flex">
+          {navitem}
+        </ul>
         <div className=" cursor-pointer  lg:hidden">
           <button
             aria-label="Open Menu"
@@ -136,7 +136,10 @@ const Nav = () => {
             className=" cursor-pointer  p-2 -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline hover:bg-deep-purple-50 focus:bg-deep-purple-50"
             onClick={() => setIsMenuOpen(true)}
           >
-            <svg className=" cursor-pointer  w-5 text-gray-600" viewBox="0 0 24 24">
+            <svg
+              className=" cursor-pointer  w-5 text-gray-600"
+              viewBox="0 0 24 24"
+            >
               <path
                 fill="currentColor"
                 d="M23,13H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,13,23,13z"
@@ -189,7 +192,10 @@ const Nav = () => {
                       className=" cursor-pointer  p-2 -mt-2 -mr-2 transition duration-200 rounded hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
                       onClick={() => setIsMenuOpen(false)}
                     >
-                      <svg className=" cursor-pointer  w-5 text-gray-600" viewBox="0 0 24 24">
+                      <svg
+                        className=" cursor-pointer  w-5 text-gray-600"
+                        viewBox="0 0 24 24"
+                      >
                         <path
                           fill="currentColor"
                           d="M19.7,4.3c-0.4-0.4-1-0.4-1.4,0L12,10.6L5.7,4.3c-0.4-0.4-1-0.4-1.4,0s-0.4,1,0,1.4l6.3,6.3l-6.3,6.3 c-0.4,0.4-0.4,1,0,1.4C4.5,19.9,4.7,20,5,20s0.5-0.1,0.7-0.3l6.3-6.3l6.3,6.3c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3 c0.4-0.4,0.4-1,0-1.4L13.4,12l6.3-6.3C20.1,5.3,20.1,4.7,19.7,4.3z"
