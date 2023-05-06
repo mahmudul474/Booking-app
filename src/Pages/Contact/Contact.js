@@ -3,10 +3,13 @@ import { AiTwotoneMail } from "react-icons/ai";
 import { BiMobile } from "react-icons/bi";
 import { BsFacebook, BsTelephoneFill, BsTwitter } from "react-icons/bs";
 import { GoLocation } from "react-icons/go";
+import DefoultMap from "./Componenet/Map/DefoultMap";
+import Sponser from "../../Shared/Sponser/Sponser";
 
 export default function Contact() {
   return (
-    <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+   <> 
+   <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
       <div class="flex justify-center items-center w-screen   bg-white ">
         <div class="container mx-auto my-4 px-4 lg:px-20">
           <div class="w-full p-8 my-4 md:px-12 lg:w-9/12 lg:pl-20 lg:pr-40 mr-auto rounded-2xl shadow-2xl">
@@ -111,5 +114,27 @@ export default function Contact() {
         </div>
       </div>
     </div>
+
+<div className="relative">
+<DefoultMap></DefoultMap>
+
+
+
+<div className="hero  absolute bottom-0" >
+  <div className="hero-overlay bg-opacity-60"></div>
+  <div className="  text-center  text-neutral-content my-12">
+    <div className=" ">
+      <h1 className="mb-1 text-5xl font-bold ">Book your professional driver</h1>
+      <p className="my-3 text-xl">Contact our representative by completing the form. A member of our team will get in touch with you.</p>
+      <button className="btn bg-green-950 hover:bg-green-950">Book now </button>
+    </div>
+  </div>
+</div>
+</div>
+
+<div>
+    <Sponser></Sponser>
+</div>
+    </>
   );
 }
