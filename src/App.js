@@ -1,3 +1,4 @@
+
 import { RouterProvider } from "react-router-dom";
 import "./App.css";
 import routers from "./Routes/routers";
@@ -38,7 +39,7 @@ saveState({ data, category, userInfo });
 
  
   return (
-    <div className="m-auto">
+    <div className="m-auto bg-white">
       <DataContext.Provider
         value={{ data, setData, category, setCategory, userInfo, setUserInfo ,distance,setDistance}}
       >

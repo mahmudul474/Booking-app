@@ -42,7 +42,7 @@ export default function WhyChooseUs() {
                 src={airplane}
               />
             </span>
-            <div className="text-left">
+            <div className="text-center lg:text-left">
               <h2 className="text-2xl mb-2 font-sans text-green-950 font-bold">
                 Reliable Transportation
               </h2>
@@ -62,7 +62,7 @@ export default function WhyChooseUs() {
                 src={lock}
               />
             </span>
-            <div className="text-left">
+            <div className="text-center lg:text-left">
               <h2 className="text-2xl mb-2 font-sans text-green-950 font-bold">
               Safe And Secure
 
@@ -84,7 +84,7 @@ export default function WhyChooseUs() {
                 src={compofort }
               />
             </span>
-            <div className="text-left">
+            <div className=" text-center lg:text-left">
               <h2 className="text-2xl mb-2 font-sans text-green-950 font-bold">
               Comfortable Journey
               </h2>
@@ -104,7 +104,7 @@ export default function WhyChooseUs() {
                 src={affordable}
               />
             </span>
-            <div className="text-left">
+            <div className="text-center  lg:text-left">
               <h2 className="text-2xl mb-2 font-sans text-green-950 font-bold">
               Affordable Prices
               </h2>
@@ -127,7 +127,7 @@ export default function WhyChooseUs() {
                 src={doctor}
               />
             </span>
-            <div className="text-left">
+            <div className="lg:text-left text-center">
               <h2 className="text-2xl mb-2 font-sans text-green-950 font-bold">
               Door-To-Door Service
               </h2>
@@ -148,7 +148,7 @@ export default function WhyChooseUs() {
                 src={driver}
               />
             </span>
-            <div className="text-left">
+            <div className="lg:text-left text-center">
               <h2 className="text-2xl mb-2 font-sans text-green-950 font-bold">
               Professional Drivers
               </h2>
@@ -169,7 +169,7 @@ export default function WhyChooseUs() {
                 src={car}
               />
             </span>
-            <div className="text-left">
+            <div className="lg:text-left text-center ">
               <h2 className="text-2xl mb-2 font-sans text-green-950 font-bold">
               Wide Range Of Vehicles
               </h2>
@@ -190,7 +190,7 @@ export default function WhyChooseUs() {
                 src={calender}
               />
             </span>
-            <div className="text-left">
+            <div className=" text-center lg:text-left">
               <h2 className="text-2xl mb-2 font-sans text-green-950 font-bold">
               Easy Booking
               </h2>

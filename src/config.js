@@ -1,2 +1,2 @@
-export const API_KEY="AIzaSyDCOoYxcK0kSBNvJA-JxN-TRW-2fOt2FvE"
+export const API_KEY="AIzaSyCREgqhSB59-FiOgaOWRGp2YNQcHJve2NM"
 export const  places=["places"]
