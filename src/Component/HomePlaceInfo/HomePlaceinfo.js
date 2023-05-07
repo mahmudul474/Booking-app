@@ -11,9 +11,12 @@ import { API_KEY, places } from "../../config";
 
 function HomePlaceinfo() {
 
-const {setData}=useContext(DataContext)
+const {data,setData}=useContext(DataContext)
 
 const navigate=useNavigate()
+
+
+
   //start locations
   const [startLocationValue, setStartLocationValue] = useState("");
   const [showIcon, showStartlocationIcon] = useState(false);
@@ -96,6 +99,8 @@ const navigate=useNavigate()
   };
 
 
+
+  console.log(data,"dddddddd")
    
 
   
@@ -117,7 +122,7 @@ const navigate=useNavigate()
               <input
                 required
                 type="text"
-                
+                defaultValue={data&&  data.origin}
                 onBlur={(e)=>{
                   setStartLocationValue(e.target.value)
                   handlesaveBookingData()
