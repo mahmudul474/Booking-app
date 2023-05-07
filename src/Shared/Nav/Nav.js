@@ -16,13 +16,15 @@ const Nav = () => {
 
   const navitem = (
     <>
-      <li
-        aria-label="Product pricing"
-        title="Product pricing"
-        className=" cursor-pointer  font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400"
-      >
-        Home
-      </li>
+      <Link to="/">
+        <li
+          aria-label="Product pricing"
+          title="Product pricing"
+          className=" cursor-pointer  font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400"
+        >
+          Home
+        </li>
+      </Link>
 
       <li
         aria-label="Product pricing"
@@ -32,6 +34,8 @@ const Nav = () => {
         Chauffer Vehicles
       </li>
 
+<Link to="/daytour">
+
       <li
         aria-label="Product pricing"
         title="Product pricing"
@@ -39,6 +43,7 @@ const Nav = () => {
       >
         Day Tour
       </li>
+      </Link>
 
       <Link to="/contact">
         <li

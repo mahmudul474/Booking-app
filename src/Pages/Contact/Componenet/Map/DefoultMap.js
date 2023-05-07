@@ -15,8 +15,9 @@ const center = {
 
 function DefoultMap() {
   return (
+    
     <LoadScript
-      googleMapsApiKey={API_KEY}
+      googleMapsApiKey={"AIzaSyAE5EnheBTwEkK93MW0v2XyrwBeg_KxDC0"}
     >
       <GoogleMap
         mapContainerStyle={containerStyle}

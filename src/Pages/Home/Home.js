@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import Placefrom from "../../Component/PlaceFrom/Placefrom";
 import AutoSlider from "../../Component/Slider/AutoSlider";
@@ -10,8 +10,10 @@ import OurBenifits from "./HomeComponent/OurBenifits/OurBenifits";
 import WhyChooseUs from "./HomeComponent/WhyChoosUS/WhyChooseUs";
 import BookyoureCar from "./HomeComponent/BookYoureCar/BookyoureCar";
 import ReviewSlider from "./HomeComponent/CurtomerReviewe/ReviewSlider";
+import Sponser from "../../Shared/Sponser/Sponser";
 
 function Home() {
+
   return (
     <>
       <div className="flex justify-center  lg:flex-row xl:flex-row md:flex-row  flex-col items-center h-[500px] ">
@@ -45,6 +47,9 @@ function Home() {
      </div>
      <div className="">
   <ReviewSlider></ReviewSlider>
+     </div>
+     <div>
+      <Sponser></Sponser>
      </div>
 
 

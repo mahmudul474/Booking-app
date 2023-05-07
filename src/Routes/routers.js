@@ -15,6 +15,8 @@ import Confirmation from "../Shared/Confirmations/Confirmation";
 import Allcars from "../Pages/DashBoard/Car/AllCars/Allcars";
 import Allorders from "../Pages/DashBoard/Orders/Allorders";
 import Contact from "../Pages/Contact/Contact";
+import DayTour from "../Pages/Day-Tour/DayTour";
+
 
 
 
@@ -88,6 +90,10 @@ const   routers=createBrowserRouter([
             {
                 path:"/contact",
                 element:<Contact></Contact>
+            },
+            {
+                path:"/daytour",
+                element:<DayTour></DayTour>
             }
           
 

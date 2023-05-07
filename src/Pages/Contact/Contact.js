@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { AiTwotoneMail } from "react-icons/ai";
 import { BiMobile } from "react-icons/bi";
 import { BsFacebook, BsTelephoneFill, BsTwitter } from "react-icons/bs";
@@ -7,6 +7,26 @@ import DefoultMap from "./Componenet/Map/DefoultMap";
 import Sponser from "../../Shared/Sponser/Sponser";
 
 export default function Contact() {
+
+
+
+    useEffect(() => {
+        function reloadOnce() {
+          if (!reloaded) {
+            reloaded = true;
+            window.location.reload(false);
+          }
+        }
+    
+        let reloaded = false;
+        window.addEventListener('beforeunload', reloadOnce);
+    
+        return () => {
+          window.removeEventListener('beforeunload', reloadOnce);
+        };
+      }, []);
+
+   
   return (
    <> 
    <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">

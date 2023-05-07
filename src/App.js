@@ -17,7 +17,7 @@ function App() {
 
   useEffect(() => {
     const initialState = loadState();
-    if (initialState) {
+    if (initialState && initialState.data && initialState.category && initialState.userInfo) {
       setData(initialState.data);
       setCategory(initialState.category);
       setUserInfo(initialState.userInfo);
