@@ -195,7 +195,7 @@ function HomePlaceinfo() {
               <div class="inline-flex rounded-md shadow-sm" role="group">
                 <button
                   className={`bg-${
-                    selectedBtn === "single" ? "red" : "gray"
+                    selectedBtn === "single" ? "red" :"gray"
                   }-500 text-${
                     selectedBtn === "single" ? "white" : "black"
                   } px-4 py-2 rounded-md mr-4`}
