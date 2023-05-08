@@ -217,46 +217,57 @@ function Placefrom() {
 
             <div className="my-5 mx-6">
               {/* btn grupe */}
-              <div class="inline-flex rounded-md shadow-sm" role="group">
-                <button
-                  className={`bg-${
-                    selectedBtn === "single" ? "red" : "gray"
-                  }-500 text-${
-                    selectedBtn === "single" ? "white" : "black"
-                  } px-4 py-2 rounded-md mr-4`}
-                  onClick={() => {
-                    handleClick("single");
-                    handlesingleTrip();
-                  }}
-                >
-                  SINGLE
-                </button>
-                <button
-                  className={`bg-${
-                    selectedBtn === "return" ? "red" : "gray"
-                  }-500 text-${
-                    selectedBtn === "return" ? "white" : "black"
-                  } px-4 py-2 rounded-md mr-4`}
-                  onClick={() => {
-                    handleClick("return");
-                    handleReturndateOpen();
-                  }}
-                >
-                  RETURN
-                </button>
-                <button
-                  className={`bg-${
-                    selectedBtn === "wait" ? "red" : "gray"
-                  }-500 text-${
-                    selectedBtn === "wait" ? "white" : "black"
-                  } px-4 py-2 rounded-md mr-4`}
-                  onClick={() => {
-                    handleWaitAndReturn();
-                    handleClick("wait");
-                  }}
-                >
-                  WAIT & RETURN
-                </button>
+              <div class=" flex flex-wrap  rounded-md  " role="group">
+                {selectedBtn === "single" ? (
+                  <button className="btn mr-2  my-2 bg-green-950 hover:bg-green-700">
+                    {" "}
+                    SINGLE
+                  </button>
+                ) : (
+                  <button
+                    className="border-1 btn mr-2 my-2 bg-transparent  hover:bg-green-950 text-black hover:text-white border-black"
+                    onClick={() => {
+                      handleClick("single");
+                      handlesingleTrip();
+                    }}
+                  >
+                    SINGLE
+                  </button>
+                )}
+
+                {selectedBtn === "return" ? (
+                  <button className="btn  my-2 bg-green-950 hover:bg-green-700 mr-2 ">
+                    {" "}
+                    RETURN
+                  </button>
+                ) : (
+                  <button
+                    className=" 
+                  border-1 btn bg-transparent my-2  mr-2  hover:bg-green-950 text-black hover:text-white border-black"
+                    onClick={() => {
+                      handleClick("return");
+                      handleReturndateOpen();
+                    }}
+                  >
+                    RETURN
+                  </button>
+                )}
+
+                {selectedBtn === "wait" ? (
+                  <button className="btn  my-2 bg-green-950 hover:bg-green-700 mr-2 ">
+                    WAIT & RETURN
+                  </button>
+                ) : (
+                  <button
+                    className="border-1 btn my-2 bg-transparent  mr-2  hover:bg-green-950 text-black hover:text-white border-black"
+                    onClick={() => {
+                      handleWaitAndReturn();
+                      handleClick("wait");
+                    }}
+                  >
+                    WAIT & RETURN
+                  </button>
+                )}
               </div>
             </div>
             <div className="flex justify-end items-end mr-5">

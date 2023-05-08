@@ -135,9 +135,9 @@ export default function Contact() {
       </div>
     </div>
 
-<div className="relative">
-<DefoultMap></DefoultMap>
+<div className="relative h-[500px]">
 
+ <img className="w-full h-full object-cover" src="https://i.ibb.co/CWkgx0z/photo-1604357209793-fca5dca89f97-ixlib-rb-4-0.jpg"/>
 
 
 <div className="hero  absolute bottom-0" >

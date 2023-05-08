@@ -17,7 +17,7 @@ export default function DettailsVihicles() {
       </div>
 
       <div className="px-4 mt-24 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
-        <div>
+        <div className=" text-cente">
           <img src="https://jannahexpress.co.uk/wp-content/uploads/2022/04/PikPng.com_carro-png_2728602.png" />
 
           <div className="grid grid-cols-1 my-6  lg:grid-cols-2 gap-10">

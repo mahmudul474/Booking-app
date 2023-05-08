@@ -130,10 +130,11 @@ export default function ChaufferVehicles() {
                   <p> £ {car.dayPrice}/ Day rate (8 hours)</p>
                 </div>
                 <div>
-                  <Link to={`/Chauffervehicles/${car._id}`}></Link>
+                  <Link to={`/Chauffervehicles/${car._id}`}>
                   <button className="btn bg-transparent hover:bg-green-950   hover:text-white text-black">
                     VIEW DETAILS
                   </button>
+                  </Link>
                 </div>
                 <div className="border-2 border-black  rounded-lg p-2">
                   <a href="tel:02038842869">
