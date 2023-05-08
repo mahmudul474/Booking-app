@@ -12,6 +12,7 @@ import "tailwindcss/tailwind.css";
 
 function HomePlaceinfo() {
   const { data, setData } = useContext(DataContext);
+   
 
   const navigate = useNavigate();
 
@@ -73,11 +74,13 @@ function HomePlaceinfo() {
   };
 
   //save data
+   
+  
   const handlesaveBookingData = (e) => {
     const data = {
       origin: startLocationValue ? startLocationValue : "",
       destination: endLocationValue ? endLocationValue : "",
-      date: startDate ? startDate.toLocaleString() : "",
+      date: startDate ? startDate.toLocaleString() :new Date().toLocaleString() ,
       returnDate: returnDate ? returnDate.toLocaleString() : singelvalue,
       waitandReturn: waitandreturnValue ? waitandreturnValue : singelvalue,
       single: singelvalue && singelvalue,
@@ -172,6 +175,7 @@ function HomePlaceinfo() {
 
             {/* start date */}
             <div>
+              
               <DateTime
                 selectedDate={startDate}
                 setSelectedDate={setStartDate}
@@ -195,7 +199,7 @@ function HomePlaceinfo() {
               <div class="inline-flex rounded-md shadow-sm" role="group">
                 <button
                   className={`bg-${
-                    selectedBtn === "single" ? "red" :"gray"
+                    selectedBtn === "single" ? "red" : "gray"
                   }-500 text-${
                     selectedBtn === "single" ? "white" : "black"
                   } px-4 py-2 rounded-md mr-4`}

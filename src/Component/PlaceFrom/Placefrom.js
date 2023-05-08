@@ -22,8 +22,6 @@ function Placefrom() {
     data && data.origin
   );
 
-  console.log(startLocationValue, "eta sart location value");
-
   const [showIcon, showStartlocationIcon] = useState(false);
 
   const handleStartLocationChange = (event) => {
@@ -50,11 +48,24 @@ function Placefrom() {
   };
 
   //date  pick up date
-  const [startDate, setStartDate] = useState(null);
+
+  const dateObject = new Date(data && data.date);
+  
+  const dateString = dateObject.toLocaleDateString("en-US");
+  const curentdate=new Date()
+   const defaultDate=new Date(dateString  && dateString )
+
+  const [startDate, setStartDate] = useState(defaultDate && defaultDate);
 
   ///return date
-  const [returnDate, setReturnDate] = useState(null);
-  const [showreturndate, setShowReturndate] = useState(false);
+
+  // const returdateObject = new Date(data && data.returnDate);
+  // const returndateString = returdateObject.toLocaleDateString("en-US");
+
+  const [returnDate, setReturnDate] = useState( null);
+
+  const [showreturndate, setShowReturndate] = useState(true);
+  
   const handleReturndateOpen = () => {
     setShowReturndate(true);
     handlesaveBookingData();
@@ -98,7 +109,7 @@ function Placefrom() {
     setData(data);
   };
 
-  const [selectedBtn, setSelectedBtn] = useState("single");
+  const [selectedBtn, setSelectedBtn] = useState("return");
 
   const handleClick = (btn) => {
     setSelectedBtn(btn);

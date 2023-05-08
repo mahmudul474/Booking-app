@@ -16,7 +16,7 @@ function Sidebar() {
   return (
     <div className=''>
       
-<div className="max-w-sm bg-white border  mx-auto  my-6  px-8 border-gray-200 rounded-lg shadow   dark:border-gray-700">
+<div className="max-w-sm bg-white border  mx-auto  my-6  px-8 border-gray-200 rounded-lg shadow   ">
     <div className=' flex justify-start  items-center '>
        <Map ></Map>
     </div>

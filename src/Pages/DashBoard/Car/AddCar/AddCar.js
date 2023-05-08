@@ -76,7 +76,7 @@ const navigate=useNavigate()
             <div className="mb-6 w-full mx-2">
               <label
                 for="username-success"
-                className="block mb-2 text-lg font-medium text-green-700 dark:text-green-500"
+                className="block mb-2 text-lg font-medium text-green-700  "
               >
                 Car Name
               </label>

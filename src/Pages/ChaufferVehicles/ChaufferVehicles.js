@@ -14,7 +14,7 @@ export default function ChaufferVehicles() {
   const [cars, setCars] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/car")
+    fetch("https://booking-server-devsobuj910.vercel.app/car")
       .then((res) => res.json())
       .then((data) => {
         setCars(data);
@@ -61,7 +61,7 @@ export default function ChaufferVehicles() {
                   {car.carName}
                 </h5>
 
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                <p className="mb-3 font-normal text-gray-700 ">
                   {car.about.slice(0, 160)} ....{" "}
               <Link to={`/Chauffervehicles/${car._id}`}>   <span className="text-green-950 font-bold  cursor-pointer">
                     Read-more

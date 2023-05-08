@@ -91,7 +91,7 @@ const routers = createBrowserRouter([
       },
       {
         path:'/Chauffervehicles/:id',
-         loader:({params})=>fetch(`http://localhost:5000/car/${params.id}`),
+         
         element:<DettailsVihicles></DettailsVihicles>
       },
       {
