@@ -76,7 +76,7 @@ console.log(cars)
         <td>{car.bag
 }</td>
         <th>
-          <button className="btn btn-ghost btn-xs">{car.priceperKM}</button>
+          <button className="btn btn-ghost btn-xs">{car.price}</button>
         </th>
       </tr>
         

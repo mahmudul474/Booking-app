@@ -12,8 +12,8 @@ const navigate=useNavigate()
 const { data, setData, category, setCategory, userInfo, setUserInfo ,distance,setDistance}=useContext(DataContext)
    
    
-  const  totalwithreturn=parseFloat(distance * (category && category.priceperKM) * 2).toFixed(2)
-    const singlePrice=parseFloat(distance * (category && category.priceperKM)  ).toFixed(2)
+  const  totalwithreturn=parseFloat(distance * (category && category.price) * 2).toFixed(2)
+    const singlePrice=parseFloat(distance * (category && category.price)  ).toFixed(2)
     
 const price=(data &&  data.returnDate==="" && data.waitandReturn==="" ? singlePrice:totalwithreturn)
 

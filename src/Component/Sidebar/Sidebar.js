@@ -9,8 +9,8 @@ function Sidebar() {
 
    
     
-  const  totalwithreturn=parseFloat(distance * (category && category.priceperKM) * 2).toFixed(2)
-    const singlePrice=parseFloat(distance * (category && category.priceperKM)  ).toFixed(2)
+  const  totalwithreturn=parseFloat(distance * (category && category.price) * 2).toFixed(2)
+    const singlePrice=parseFloat(distance * (category && category.price)  ).toFixed(2)
     console.log(singlePrice,totalwithreturn)
 
   return (

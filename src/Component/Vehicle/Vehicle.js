@@ -235,7 +235,7 @@ function Vehicle() {
                   <span>
                     <BsCurrencyDollar></BsCurrencyDollar>
                   </span>{" "}
-                  {currentItem && currentItem.priceperKM}
+                  {currentItem && currentItem.price}
                 </p>
               </div>
             </div>
@@ -263,7 +263,7 @@ function Vehicle() {
                       <span>
                         <BsCurrencyDollar></BsCurrencyDollar>
                       </span>{" "}
-                      {defaultitem && defaultitem.priceperKM}
+                      {defaultitem && defaultitem.price}
                     </p>
                   </div>
                 </div>
@@ -309,7 +309,7 @@ function Vehicle() {
                       <span>
                         <BsCurrencyDollar></BsCurrencyDollar>
                       </span>{" "}
-                      {item.priceperKM}
+                      {item.price}
                     </p>
                   </div>
                   <button onClick={handleClose3} className=" text-white w-28 p-2 rounded-lg bg-green-950 hover:bg-green-950">
@@ -358,7 +358,7 @@ function Vehicle() {
                       <span>
                         <BsCurrencyDollar></BsCurrencyDollar>
                       </span>{" "}
-                      {currentItem && currentItem.priceperKM}
+                      {currentItem && currentItem.price}
                     </p>
                   </div>
                 </div>
@@ -399,7 +399,7 @@ function Vehicle() {
                       <span>
                         <BsCurrencyDollar></BsCurrencyDollar>
                       </span>{" "}
-                      {defaultitem && defaultitem.priceperKM}
+                      {defaultitem && defaultitem.price}
                     </p>
                   </div>
                 </div>

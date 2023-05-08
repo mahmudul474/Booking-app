@@ -26,23 +26,24 @@ const Nav = () => {
         </li>
       </Link>
 
-      <li
-        aria-label="Product pricing"
-        title="Product pricing"
-        className=" cursor-pointer  font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400"
-      >
-        Chauffer Vehicles
-      </li>
+      <Link to="/Chauffervehicles">
+        <li
+          aria-label="Product pricing"
+          title="Product pricing"
+          className=" cursor-pointer  font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400"
+        >
+          Chauffer Vehicles
+        </li>
+      </Link>
 
-<Link to="/daytour">
-
-      <li
-        aria-label="Product pricing"
-        title="Product pricing"
-        className=" cursor-pointer  font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400"
-      >
-        Day Tour
-      </li>
+      <Link to="/daytour">
+        <li
+          aria-label="Product pricing"
+          title="Product pricing"
+          className=" cursor-pointer  font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400"
+        >
+          Day Tour
+        </li>
       </Link>
 
       <Link to="/contact">

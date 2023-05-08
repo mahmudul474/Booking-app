@@ -38,11 +38,11 @@ const navigate=useNavigate()
     const carName = from.name.value;
     const seat = from.seat.value;
     const bag = from.bag.value;
-    const priceperKM = from.price.value;
+    const price = from.price.value;
     const carImg = carimg;
     const author = user?.email;
 
-    const carinfo = { carName, seat, bag, priceperKM, carImg, author };
+    const carinfo = { carName, seat, bag, price, carImg, author };
 
     savecar(carinfo);
   };
