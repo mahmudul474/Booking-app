@@ -210,6 +210,8 @@ const price=(data &&  data.returnDate==="" && data.waitandReturn==="" ? singlePr
     </div>
 
 <div className='flex justify-end  items-center my-5'>
+ <h2 className='text-xl mr-2 font-bold'>Price: {category && category.price} $ </h2>
+
   <button onClick={handleSubmit} className='w-32 bg-green-950 hover:bg-green-950 btn'>Place Order</button>
 </div>
 

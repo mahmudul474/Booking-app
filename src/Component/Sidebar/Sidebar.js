@@ -5,15 +5,9 @@ import DataContext from "../../Context/BookingDataContex";
 import "./Sidebar.css";
 
 function Sidebar() {
-  const { data, category, userInfo, distance } = useContext(DataContext);
+  const { data, category, userInfo, } = useContext(DataContext);
 
-  const totalwithreturn = parseFloat(
-    distance * (category && category.price) * 2
-  ).toFixed(2);
-  const singlePrice = parseFloat(
-    distance * (category && category.price)
-  ).toFixed(2);
-  console.log(singlePrice, totalwithreturn);
+     console.log(category)
 
   return (
     <div className="">
@@ -64,6 +58,15 @@ function Sidebar() {
             </div>
           </div>
         </div>
+         <hr/>
+
+
+         <div className="mb-2">
+          Total : {category && category.price} $ 
+         </div>
+
+
+
       </div>
     </div>
   );
