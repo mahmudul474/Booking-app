@@ -8,7 +8,7 @@ const Nav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const { user, logout } = useContext(UserinfoContext);
-  console.log(user);
+ 
 
   const handlelogout = () => {
     logout(() => {});
@@ -17,7 +17,7 @@ const Nav = () => {
   const navitem = (
     <>
       <Link to="/">
-        <li
+        <li  onClick={() => setIsMenuOpen(false)}
           aria-label="Product pricing"
           title="Product pricing"
           className=" cursor-pointer  font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400"
@@ -27,7 +27,7 @@ const Nav = () => {
       </Link>
 
       <Link to="/Chauffervehicles">
-        <li
+        <li  onClick={() => setIsMenuOpen(false)}
           aria-label="Product pricing"
           title="Product pricing"
           className=" cursor-pointer  font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400"
@@ -37,7 +37,7 @@ const Nav = () => {
       </Link>
 
       <Link to="/daytour">
-        <li
+        <li  onClick={() => setIsMenuOpen(false)}
           aria-label="Product pricing"
           title="Product pricing"
           className=" cursor-pointer  font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400"
@@ -47,7 +47,7 @@ const Nav = () => {
       </Link>
 
       <Link to="/contact">
-        <li
+        <li  onClick={() => setIsMenuOpen(false)}
           aria-label="Product pricing"
           title="Product pricing"
           className=" cursor-pointer  font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400"
@@ -55,7 +55,7 @@ const Nav = () => {
           Contact us
         </li>
       </Link>
-      <li
+      <li  onClick={() => setIsMenuOpen(false)}
         aria-label="Product pricing"
         title="Product pricing"
         className=" cursor-pointer  font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400"
@@ -68,7 +68,7 @@ const Nav = () => {
       {user ? (
         <>
           <Link to="/dashboard">
-            <li
+            <li  onClick={() => setIsMenuOpen(false)}
               aria-label="Product pricing"
               title="Product pricing"
               className=" cursor-pointer  font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400"
@@ -76,7 +76,7 @@ const Nav = () => {
               Dashboard
             </li>
           </Link>
-          <li
+          <li 
             aria-label="Product pricing"
             title="Product pricing"
             className=" cursor-pointer  font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400"
@@ -96,7 +96,7 @@ const Nav = () => {
       ) : (
         <>
           <Link to="/register">
-            <li
+            <li  onClick={() => setIsMenuOpen(false)}
               aria-label="Product pricing"
               title="Product pricing"
               className=" cursor-pointer  font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400"
@@ -106,7 +106,7 @@ const Nav = () => {
           </Link>
 
           <Link to="/login">
-            <li
+            <li  onClick={() => setIsMenuOpen(false)}
               aria-label="Product pricing"
               title="Product pricing"
               className=" cursor-pointer  font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400"
@@ -168,31 +168,7 @@ const Nav = () => {
               <div className=" cursor-pointer  p-5 bg-white border rounded shadow-sm">
                 <div className=" cursor-pointer  flex items-center justify-between mb-4">
                   <div>
-                    <a
-                      href="/"
-                      aria-label="Company"
-                      title="Company"
-                      className=" cursor-pointer  inline-flex items-center"
-                    >
-                      <svg
-                        className=" cursor-pointer  w-8 text-deep-purple-accent-400"
-                        viewBox="0 0 24 24"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeMiterlimit="10"
-                        stroke="currentColor"
-                        fill="none"
-                      >
-                        <rect x="3" y="1" width="7" height="12" />
-                        <rect x="3" y="17" width="7" height="6" />
-                        <rect x="14" y="1" width="7" height="6" />
-                        <rect x="14" y="11" width="7" height="12" />
-                      </svg>
-                      <span className=" cursor-pointer  ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
-                        Company
-                      </span>
-                    </a>
+                    <img src={logo} alt="logo"/>
                   </div>
                   <div>
                     <button
