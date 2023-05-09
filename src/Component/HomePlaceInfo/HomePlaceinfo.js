@@ -17,21 +17,16 @@ function HomePlaceinfo() {
 
   //start locations
   const [startLocationValue, setStartLocationValue] = useState("");
-  const [showIcon, showStartlocationIcon] = useState(false);
+   
 
   //end locations
 
   const [endLocationValue, setEndLocationValue] = useState("");
-  const [showEndicon, showEndtlocationIcon] = useState(false);
+  
 
-  const handleEndLocationChange = (event) => {
-    setEndLocationValue(event.target.value);
-    showEndtlocationIcon(true);
-  };
+  
 
-  const handleClearEndLocation = () => {
-    setEndLocationValue("");
-  };
+  
 
   //date  pick up date
   const [startDate, setStartDate] = useState(null);
@@ -102,7 +97,7 @@ function HomePlaceinfo() {
                   <input
                     required
                     type="text"
-                    defaultValue={data && data.origin}
+                   
                     onBlur={(e) => {
                       setStartLocationValue(e.target.value);
                       handlesaveBookingData();
@@ -112,16 +107,7 @@ function HomePlaceinfo() {
                   />
                 </Autocomplete>
 
-                {/* {startLocationValue && (
-                <button
-                  className="absolute top-1/2 right-9 transform -translate-y-1/2"
-                  onClick={handleClearStartLocation}
-                >
-                  <span className="w-10">
-                    <MdOutlineCancel></MdOutlineCancel>
-                  </span>
-                </button>
-              )} */}
+                 
 
                 <div className="absolute inset-y-0 border border-gray-600  left-0 flex items-center px-2">
                   <span className="w-10 h-10 m-auto  ">
@@ -149,16 +135,7 @@ function HomePlaceinfo() {
                     placeholder="DESTINATION ADDRESS"
                   />
                 </Autocomplete>
-                {/* {endLocationValue && (
-                <button
-                  className="absolute top-1/2 right-9 transform -translate-y-1/2"
-                  onClick={handleClearEndLocation}
-                >
-                  <span className="w-10">
-                    <MdOutlineCancel></MdOutlineCancel>
-                  </span>
-                </button>
-              )} */}
+               
 
                 <div className="absolute inset-y-0 border border-gray-600  left-0 flex items-center px-2">
                   <span className="w-10 h-10 m-auto  ">
@@ -250,7 +227,7 @@ function HomePlaceinfo() {
             </div>
             <div className="flex justify-end items-end mr-5">
               <Link to="/booking">
-                <button className="btn bg-green-950 w-36 hover:bg-green-950  text-white font-bold capitalize">
+                <button disabled={startLocationValue==="" || endLocationValue===""} className="btn bg-green-950 w-36 hover:bg-green-950  text-white font-bold capitalize">
                   NEXT
                 </button>
               </Link>

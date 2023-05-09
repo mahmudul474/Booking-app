@@ -14,10 +14,12 @@ function App() {
      const [distance,setDistance]=useState(null)
  
    
+ console.log(data ,"inside app")
+
 
   useEffect(() => {
     const initialState = loadState();
-    if (initialState && initialState.data && initialState.category && initialState.userInfo) {
+    if (initialState || initialState.data || initialState.category || initialState.userInfo) {
       setData(initialState.data);
       setCategory(initialState.category);
       setUserInfo(initialState.userInfo);

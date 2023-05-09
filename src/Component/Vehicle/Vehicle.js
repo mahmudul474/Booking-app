@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FaChevronDown, FaDog, FaTimes } from "react-icons/fa";
 
 import {
@@ -11,27 +11,13 @@ import { MdAirlineSeatReclineNormal } from "react-icons/md";
 import { BiChild } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import { AiOutlineLeft } from "react-icons/ai";
+import DataContext from "../../Context/BookingDataContex";
 
 function Vehicle() {
-  //
-  const [isOpen, setIsOpen] = useState(false);
-  const handleToggle = () => {
-    setIsOpen(!isOpen);
-  };
-  const handleClose = () => {
-    setIsOpen(false);
-  };
-  ///seconde  top input
-  const [isOpen2, setIsOpen2] = useState(false);
-  const handleToggle2 = () => {
-    setIsOpen2(!isOpen2);
-  };
-
-  const handleClose2 = () => {
-    setIsOpen2(false);
-
-    // do something else for the top bar close button if needed
-  };
+   
+  
+const {setCategory}=useContext(DataContext)
+   
 
   //bottom input
   const [isOpen3, setIsOpen3] = useState(false);
@@ -44,17 +30,7 @@ function Vehicle() {
     setIsOpen3(false);
   };
 
-  const handleItemClick1 = () => {
-    console.log("Item 1 clicked");
-  };
-
-  const handleItemClick2 = () => {
-    console.log("Item 2 clicked");
-  };
-
-  const handleItemClick3 = () => {
-    console.log("Item 3 clicked");
-  };
+ 
 
   const [isloading, setIsloading] = useState(true);
 
@@ -70,14 +46,21 @@ function Vehicle() {
   }, []);
 
   const defaultitem = places[0];
-  console.log(defaultitem, "d");
+   ;
 
   const [currentItem, setCurrentItem] = useState(null);
 
   const handlePlaceSelect = (place) => {
     setCurrentItem(place);
+    
+
   };
 
+
+
+  useEffect(()=>{
+    setCategory(currentItem ?currentItem :defaultitem)
+  },[currentItem,defaultitem])
 
 
   if(isloading){

@@ -12,15 +12,18 @@ import { API_KEY, places } from "../../config";
 function Placefrom() {
   const navigate = useNavigate();
   const { data, setData } = useContext(DataContext);
+  console.log(data,"hello use")
   const startLocation = data && data.origin;
   const endLocation = data && data.destination;
   const juernyDate = data && data.date;
   const backDate = data && data.returnDate;
+
+   console.log(startLocation,"dddd")
   //start locations
 
-  const [startLocationValue, setStartLocationValue] = useState(
-    data && data.origin
-  );
+  const [startLocationValue, setStartLocationValue] = useState( data && data.origin);
+
+
 
   const [showIcon, showStartlocationIcon] = useState(false);
 
@@ -29,13 +32,11 @@ function Placefrom() {
     showStartlocationIcon(true);
   };
 
-  const handleClearStartLocation = () => {
-    setStartLocationValue("");
-  };
+
 
   //end locations
 
-  const [endLocationValue, setEndLocationValue] = useState("");
+  const [endLocationValue, setEndLocationValue] = useState(data && data.destination);
   const [showEndicon, showEndtlocationIcon] = useState(false);
 
   const handleEndLocationChange = (event) => {
@@ -43,17 +44,13 @@ function Placefrom() {
     showEndtlocationIcon(true);
   };
 
-  const handleClearEndLocation = () => {
-    setEndLocationValue("");
-  };
+  
 
   //date  pick up date
-
   const dateObject = new Date(data && data.date);
-  
   const dateString = dateObject.toLocaleDateString("en-US");
-  const curentdate=new Date()
-   const defaultDate=new Date(dateString  && dateString )
+  const curentdate = new Date();
+  const defaultDate = new Date(dateString && dateString);
 
   const [startDate, setStartDate] = useState(defaultDate && defaultDate);
 
@@ -62,10 +59,10 @@ function Placefrom() {
   // const returdateObject = new Date(data && data.returnDate);
   // const returndateString = returdateObject.toLocaleDateString("en-US");
 
-  const [returnDate, setReturnDate] = useState( null);
+  const [returnDate, setReturnDate] = useState(null);
 
   const [showreturndate, setShowReturndate] = useState(true);
-  
+
   const handleReturndateOpen = () => {
     setShowReturndate(true);
     handlesaveBookingData();
@@ -99,9 +96,7 @@ function Placefrom() {
       destination: endLocationValue ? endLocationValue : endLocation,
       date: startDate ? startDate.toLocaleString() : juernyDate,
       returnDate: returnDate ? returnDate.toLocaleString() : singelvalue,
-
       waitandReturn: waitandreturnValue ? waitandreturnValue : singelvalue,
-
       single: singelvalue && singelvalue,
       bydefoultTrip: "single",
     };
@@ -133,17 +128,6 @@ function Placefrom() {
                     placeholder="PICKUP ADDRESS"
                   />
                 </Autocomplete>
-                {/* 
-         {startLocationValue && (
-                <button
-                  className="absolute top-1/2 right-9 transform -translate-y-1/2"
-                  onClick={handleClearStartLocation}
-                >
-                  <span className="w-10">
-                    <MdOutlineCancel></MdOutlineCancel>
-                  </span>
-                </button>
-              )}   */}
 
                 <div className="absolute inset-y-0 border border-gray-600  left-0 flex items-center px-2">
                   <span className="w-10 h-10 m-auto  ">
@@ -169,17 +153,6 @@ function Placefrom() {
                     placeholder="DESTINATION ADDRESS"
                   />
                 </Autocomplete>
-
-                {/* {endLocationValue && (
-                <button
-                  className="absolute top-1/2 right-9 transform -translate-y-1/2"
-                  onClick={handleClearEndLocation}
-                >
-                  <span className="w-10">
-                    <MdOutlineCancel></MdOutlineCancel>
-                  </span>
-                </button>
-              )} */}
 
                 <div className="absolute inset-y-0 border border-gray-600  left-0 flex items-center px-2">
                   <span className="w-10 h-10 m-auto  ">
@@ -273,6 +246,7 @@ function Placefrom() {
             <div className="flex justify-end items-end mr-5">
               <Link to="/booking/vehicle">
                 <button
+                disabled={startLocationValue==="" || endLocationValue===""} 
                   type="submit"
                   className="btn bg-green-950 w-36 hover:bg-green-950  text-white font-bold capitalize"
                 >

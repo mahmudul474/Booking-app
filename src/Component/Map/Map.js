@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { GoogleMap, LoadScript, DirectionsService, DirectionsRenderer, DistanceMatrixService } from "@react-google-maps/api";
-import { API_KEY } from "../../config";
+import { API_KEY, places } from "../../config";
 import DataContext from "../../Context/BookingDataContex";
 
 
@@ -31,20 +31,22 @@ const {distance,setDistance }=useContext(DataContext)
  
   const [directionResponse, setDirectionResponse] = useState(null);
 
-  const calculateDistance = (response) => {
-    if (response.rows[0].elements[0].status === "OK") {
-      const distanceInMeters = response.rows[0].elements[0].distance.value;
-      const distanceInKm = distanceInMeters / 1000;
-      setDistance(distanceInKm);
-    }
-  };
+  // const calculateDistance = (response) => {
+  //   if (response.rows[0].elements[0].status === "OK") {
+  //     const distanceInMeters = response.rows[0].elements[0].distance.value;
+  //     const distanceInKm = distanceInMeters / 1000;
+  //     setDistance(distanceInKm);
+  //   }
+  // };
+
+  
 
 
   
 
   return (
     <LoadScript googleMapsApiKey={API_KEY}
-     libraries={["places"]}
+     libraries={places}
     >
       <div className="">
       <GoogleMap mapContainerStyle={containerStyle} center={location} zoom={10}>
@@ -70,7 +72,7 @@ const {distance,setDistance }=useContext(DataContext)
               }}
               callback={(res) => {
                 if (res !== null) {
-                  calculateDistance(res);
+                  // calculateDistance(res);
                 }
               }}
               // Pass setDistance function as a prop
