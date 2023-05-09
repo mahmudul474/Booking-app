@@ -81,7 +81,11 @@ const price=(data &&  data.returnDate==="" && data.waitandReturn==="" ? singlePr
 
 
    
+  const [selectedBtn, setSelectedBtn] = useState("cash");
 
+  const handleClick = (btn) => {
+    setSelectedBtn(btn);
+  };
 
 
   return (
@@ -102,17 +106,40 @@ const price=(data &&  data.returnDate==="" && data.waitandReturn==="" ? singlePr
          
 
 
-     
-      <button onClick={handleSubmit} type="button" className=" border border-gray-500 font-bold   focus:bg-gray-500 text-black focus:outline-none text-sm px-5 py-2.5 text-center inline-flex items-center  mr-2 mb-2">
+    
+
+ {
+  selectedBtn==="cash" ?  <button  type="button" className=" border border-gray-500 font-bold      text-cyan-50 bg-green-950 focus:outline-none text-sm px-5 py-2.5 text-center inline-flex items-center  mr-2 mb-2">
+  <span className="w-4 h-4 mr-1"><BsCash/></span> 
+ CASH
+</button>: <button onClick={()=>{
+  handleClick("cash")
+  handleCashClick()
+}}  type="button" className=" border border-gray-500 font-bold   focus:bg-gray-500 text-black focus:outline-none text-sm px-5 py-2.5 text-center inline-flex items-center  mr-2 mb-2">
   <span className="w-4 h-4 mr-1"><BsCash/></span> 
  CASH
 </button>
+ }
 
+     
+     
 
-      <button onClick={handleCardClick} type="button" className=" border-gray-500  font-bold  border focus:bg-gray-500 text-black focus:outline-none text-sm px-5 py-2.5 text-center inline-flex items-center  mr-2 mb-2">
+{
+  selectedBtn === "card" ?   <button   type="button" className="    font-bold   border  bg-green-950 text-white    focus:outline-none text-sm px-5 py-2.5 text-center inline-flex items-center  mr-2 mb-2">
+  <span className="w-4 h-4 mr-1"><BsCreditCard2Back/></span> 
+  CARD
+</button>:<button onClick={()=>{
+  handleCardClick()
+   handleClick("card")
+  }} type="button" className=" border-gray-500  font-bold  border focus:bg-gray-500 text-black focus:outline-none text-sm px-5 py-2.5 text-center inline-flex items-center  mr-2 mb-2">
   <span className="w-4 h-4 mr-1"><BsCreditCard2Back/></span> 
   CARD
 </button>
+}
+
+
+
+      
         
         {isCardOpen && (
           <div className="  w-full mt-2 bg-white shadow-lg  p-4">

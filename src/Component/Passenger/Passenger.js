@@ -159,7 +159,7 @@ setUserInfo(userInfo)
 
 </Link>
 <Link to="/booking/Payment">
-    <button className='btn bg-green-950 w-36 hover:bg-green-950  text-white font-bold capitalize'>NEXT</button>
+    <button disabled={firstName==='' || phone==="" || email===""} className='btn bg-green-950 w-36 hover:bg-green-950  text-white font-bold capitalize'>NEXT</button>
 
 </Link>
 
