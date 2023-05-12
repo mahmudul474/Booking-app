@@ -66,9 +66,11 @@ function ReturnDate({selectedDate, setSelectedDate}) {
     );
   }
 
+  const today = new Date();
   return (
     <div>
       <DatePicker
+        minDate={today}
         selected={selectedDate}
         onChange={handleDateChange}
         showTimeSelect

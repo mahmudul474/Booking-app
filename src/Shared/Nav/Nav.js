@@ -164,8 +164,8 @@ const Nav = () => {
             </svg>
           </button>
           {isMenuOpen && (
-            <div className=" cursor-pointer  absolute top-0 left-0 w-full">
-              <div className=" cursor-pointer  p-5 bg-white border rounded shadow-sm">
+            <div className=" cursor-pointer  absolute top-0 left-0 w-full z-40">
+              <div className=" cursor-pointer  p-5 bg-gray-300  z-40 border rounded shadow-sm">
                 <div className=" cursor-pointer  flex items-center justify-between mb-4">
                   <div>
                     <img src={logo} alt="logo"/>

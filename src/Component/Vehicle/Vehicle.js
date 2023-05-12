@@ -41,7 +41,7 @@ const {setCategory}=useContext(DataContext)
       .then((res) => res.json())
       .then((data) => {
         setPlaces(data);
-        setIsloading(false);
+    
       });
   }, []);
 

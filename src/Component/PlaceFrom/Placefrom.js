@@ -12,24 +12,24 @@ import { API_KEY, places } from "../../config";
 function Placefrom() {
   const navigate = useNavigate();
   const { data, setData } = useContext(DataContext);
-  console.log(data,"hello use")
+ 
   const startLocation = data && data.origin;
   const endLocation = data && data.destination;
   const juernyDate = data && data.date;
-  const backDate = data && data.returnDate;
+  
 
-   console.log(startLocation,"dddd")
+
   //start locations
 
   const [startLocationValue, setStartLocationValue] = useState( data && data.origin);
 
 
 
-  const [showIcon, showStartlocationIcon] = useState(false);
+ 
 
   const handleStartLocationChange = (event) => {
     setStartLocationValue(event.target.value);
-    showStartlocationIcon(true);
+   
   };
 
 
@@ -48,24 +48,36 @@ function Placefrom() {
 
   //date  pick up date
   const dateObject = new Date(data && data.date);
-  const dateString = dateObject.toLocaleDateString("en-US");
-  const curentdate = new Date();
+  const dateString = dateObject.toLocaleString();
   const defaultDate = new Date(dateString && dateString);
 
-  const [startDate, setStartDate] = useState(defaultDate && defaultDate);
+  const [startDate, setStartDate] = useState( data &&  data.date ? defaultDate :null);
 
   ///return date
 
-  // const returdateObject = new Date(data && data.returnDate);
-  // const returndateString = returdateObject.toLocaleDateString("en-US");
 
-  const [returnDate, setReturnDate] = useState(null);
 
+  
+
+ 
+    const returndateObject = new Date(data && data.returnDate);
+    const returndateString = returndateObject.toLocaleDateString("en-US");
+    const returndefaultDate = new Date(returndateString  && returndateString );
+   
+ 
+
+
+
+
+  
+  const [returnDate, setReturnDate] = useState(data && data.returnDate ? returndefaultDate: null );
+
+
+  console.log(returnDate)
   const [showreturndate, setShowReturndate] = useState(true);
 
   const handleReturndateOpen = () => {
     setShowReturndate(true);
-    handlesaveBookingData();
   };
 
   //singeleTrip
@@ -75,7 +87,6 @@ function Placefrom() {
     setReturnDate(null);
     setShowReturndate(false);
     setSingelValue("Single");
-    handlesaveBookingData();
   };
 
   //wait and return
@@ -85,7 +96,7 @@ function Placefrom() {
     setReturnDate(null);
     setShowReturndate(false);
     setWaitandReturnValue("wait and return");
-    handlesaveBookingData();
+   
   };
 
   //save data
@@ -104,7 +115,7 @@ function Placefrom() {
     setData(data);
   };
 
-  const [selectedBtn, setSelectedBtn] = useState("return");
+  const [selectedBtn, setSelectedBtn] = useState("single");
 
   const handleClick = (btn) => {
     setSelectedBtn(btn);
@@ -114,7 +125,7 @@ function Placefrom() {
     <LoadScript googleMapsApiKey={API_KEY} libraries={places}>
       <div className=" ">
         <div className="my-9  ">
-          <form className=" " onClick={handlesaveBookingData}>
+          <div   >
             <div className=" px-6 m-auto">
               {/* first location */}
               <div className="relative my-5">
@@ -156,7 +167,7 @@ function Placefrom() {
 
                 <div className="absolute inset-y-0 border border-gray-600  left-0 flex items-center px-2">
                   <span className="w-10 h-10 m-auto  ">
-                    <img src="https://i.ibb.co/pyf6D9B/pin.png" />
+                    <img src="https://i.ibb.co/pyf6D9B/pin.png" alt=""/>
                   </span>
                 </div>
                 <div className="absolute inset-y-0 right-0 flex items-center pr-3">
@@ -247,14 +258,14 @@ function Placefrom() {
               <Link to="/booking/vehicle">
                 <button
                 disabled={startLocationValue==="" || endLocationValue===""} 
-                  type="submit"
+                
                   className="btn bg-green-950 w-36 hover:bg-green-950  text-white font-bold capitalize"
                 >
                   NEXT
                 </button>
               </Link>
             </div>
-          </form>
+          </div>
         </div>
       </div>
     </LoadScript>

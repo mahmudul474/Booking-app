@@ -19,7 +19,7 @@ function App() {
 
   useEffect(() => {
     const initialState = loadState();
-    if (initialState || initialState.data || initialState.category || initialState.userInfo) {
+    if (initialState) {
       setData(initialState.data);
       setCategory(initialState.category);
       setUserInfo(initialState.userInfo);
