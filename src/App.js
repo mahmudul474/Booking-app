@@ -1,3 +1,4 @@
+
 import { RouterProvider } from "react-router-dom";
 import "./App.css";
 import routers from "./Routes/routers";
@@ -13,6 +14,8 @@ function App() {
      const [distance,setDistance]=useState(null)
  
    
+ console.log(data ,"inside app")
+
 
   useEffect(() => {
     const initialState = loadState();
@@ -38,7 +41,7 @@ saveState({ data, category, userInfo });
 
  
   return (
-    <div className="m-auto">
+    <div className="m-auto bg-white">
       <DataContext.Provider
         value={{ data, setData, category, setCategory, userInfo, setUserInfo ,distance,setDistance}}
       >

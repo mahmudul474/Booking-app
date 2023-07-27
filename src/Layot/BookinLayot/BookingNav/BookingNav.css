@@ -1,0 +1,25 @@
+.lines{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border-top: 10px solid rgb(10, 51, 10);
+    padding-top: 15px;
+    margin-top: 55px;
+  }
+  
+  
+   
+  
+  .lines div {
+    background-color: rgb(10, 51, 10);
+    font-weight: bold;
+    color: #7ea5cc;
+    border: 2px solid rgb(10, 51, 10);
+    margin-top: -45px;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    border-radius: 50%;
+    z-index: 99;
+  }

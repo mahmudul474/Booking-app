@@ -1,0 +1,54 @@
+[
+    {   
+        "type":"Business Premium ",
+        "carName":"MERCEDES-BENZ E-CLASS",
+        "about":"The luxurious but company Mercedes E-class which we offer as our business premier is the vehicle most used for our executive car service. All of our Mercedes E-class come in discreet colours",
+        "hourPrice":30,
+         "dayPrice":340,
+         "price":400,
+        "seat":4,
+        "bag":2,
+        "carImg":"https://jannahexpress.co.uk/wp-content/uploads/2022/04/PikPng.com_carro-png_2728602-copy-600x182.png",
+         "author":""
+
+    },
+    {   
+        "type":"Luxury First",
+        "carName":"MERCEDES-BENZ S-CLASS",
+        "about":"",
+        "hourPrice":20,
+         "dayPrice":540,
+         "price":500,
+        "seat":4,
+        "bag":2,
+        "carImg":"https://jannahexpress.co.uk/wp-content/uploads/2022/04/PikPng.com_carro-png_2728602-600x182.png",
+         "author":"The Mercedes S-class is one of our most requested cars on the Chauffeur driven service. Our clients enjoy the S-class spacious layout of the vehicle, the ability to fully recline the rear se"
+
+    },
+    {   
+        "type":"Luxury Van",
+        "carName":"MERCEDES-BENZ V-CLASS",
+        "about":"The Mercedes V-class is one of our most popular vehicles in our chauffeur hire in London due it is size, luggage capacity and client capacity. All of our chauffeur driven Mercedes V-class a",
+        "hourPrice":10,
+         "dayPrice":240,
+         "price":300,
+        "seat":2,
+        "bag":1,
+        "carImg":"https://jannahexpress.co.uk/wp-content/uploads/2022/04/pngwing.coms_-600x182.png",
+         "author":""
+
+    },
+    {   
+        "type":"Luxury SUV",
+        "carName":"RANGE ROVER",
+        "about":"Hire one of our luxury chauffeur-driven Range Rovers to be driven in London, U.K, or Europe where one of our chauffeurs will take care of you. We only use Long-Wheel base Range Rovers so that",
+        "horurPrice":30,
+         "dayPrice":140,
+         "price":200,
+        "seat":1,
+        "bag":8,
+        "carImg":"https://jannahexpress.co.uk/wp-content/uploads/2022/04/PikPng.com_carro-png_2728602s-copy-600x182.png",
+         "author":""
+
+    } 
+]

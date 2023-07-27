@@ -99,19 +99,25 @@ setUserInfo(userInfo)
 
 
 {/* user*/}
-<div className='my-4'>
+<div className='my-4 flex justify-start'>
 
 
-  {
-    user?   <div>
+  
+     <div className='mr-3'>
       <label  className='flex'>
-        <input type="checkbox" className='rounded-full' checked={isChecked} onChange={handleCheckboxChange} />
+      {
+          user ?        <input type="checkbox"   className='rounded-full' checked={false}    />:        <input type="checkbox"   className='rounded-full' checked={true}    />
+        }
          <p className='font-bold ml-2 text-md'>Continue as Guest</p>
       </label>
-     </div> :<div className='flex flex-col lg:flex-row items-center'>
+     </div> 
+     <div className='flex flex-col lg:flex-row items-center'>
         <div className='flex mr-1'>
       <Link to="/register"><label  className='flex '>
-        <input type="checkbox" className='rounded-full' checked={isChecked} onChange={handleCheckboxChange} />
+        {
+          user ?        <input type="checkbox"   className='rounded-full' checked={true}    />:        <input type="checkbox"   className='rounded-full' checked={false}    />
+        }
+
          <p className='font-bold ml-2 text-md'>Register</p>
       </label></Link>
        <div>
@@ -124,7 +130,7 @@ setUserInfo(userInfo)
         
 
     </div>
-  }
+ 
     
  <div>
 
@@ -153,7 +159,7 @@ setUserInfo(userInfo)
 
 </Link>
 <Link to="/booking/Payment">
-    <button className='btn bg-green-950 w-36 hover:bg-green-950  text-white font-bold capitalize'>NEXT</button>
+    <button disabled={firstName==='' || phone==="" || email===""} className='btn bg-green-950 w-36 hover:bg-green-950  text-white font-bold capitalize'>NEXT</button>
 
 </Link>
 

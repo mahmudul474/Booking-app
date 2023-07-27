@@ -38,11 +38,11 @@ const navigate=useNavigate()
     const carName = from.name.value;
     const seat = from.seat.value;
     const bag = from.bag.value;
-    const priceperKM = from.price.value;
+    const price = from.price.value;
     const carImg = carimg;
     const author = user?.email;
 
-    const carinfo = { carName, seat, bag, priceperKM, carImg, author };
+    const carinfo = { carName, seat, bag, price, carImg, author };
 
     savecar(carinfo);
   };
@@ -76,7 +76,7 @@ const navigate=useNavigate()
             <div className="mb-6 w-full mx-2">
               <label
                 for="username-success"
-                className="block mb-2 text-lg font-medium text-green-700 dark:text-green-500"
+                className="block mb-2 text-lg font-medium text-green-700  "
               >
                 Car Name
               </label>
