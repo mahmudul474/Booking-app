@@ -32,16 +32,17 @@ const {setCategory}=useContext(DataContext)
 
  
 
-  const [isloading, setIsloading] = useState(true);
+  const [isloading, setIsloading] = useState(false);
 
   const [places, setPlaces] = useState([]);
 
   useEffect(() => {
+    setIsloading(true);
     fetch("https://booking-server-devsobuj910.vercel.app/car")
-      .then((res) => res.json())
-      .then((data) => {
+      .then(res => res.json())
+      .then(data => {
         setPlaces(data);
-    
+        setIsloading(false);
       });
   }, []);
 
