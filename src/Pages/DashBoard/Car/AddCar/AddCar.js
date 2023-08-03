@@ -39,16 +39,30 @@ const navigate=useNavigate()
     const seat = from.seat.value;
     const bag = from.bag.value;
     const price = from.price.value;
+    const equipmentPrice = from.Equipment.value;
+    const bagPrice = from.bagPrice.value;
+    const luggagesPrice = from.LuggagesPrice.value;
+
     const carImg = carimg;
     const author = user?.email;
 
-    const carinfo = { carName, seat, bag, price, carImg, author };
+    const carinfo = {
+      carName,
+      seat,
+      bag,
+      price,
+      carImg,
+      equipmentPrice,
+      author,
+      bagPrice,
+      luggagesPrice
+    };
 
     savecar(carinfo);
   };
 
   const savecar = carinfo => {
-    fetch(`https://booking-server-devsobuj910.vercel.app/car`, {
+    fetch(`${process.env.REACT_APP_API_URL}/car`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -57,10 +71,10 @@ const navigate=useNavigate()
     })
       .then(res => res.json())
       .then(data => {
-        if(data.acknowledged){
-          toast.success("car added successfully")
-          navigate("/dashboard/allcars")
-        };
+        if (data.acknowledged) {
+          toast.success("car added successfully");
+          navigate("/dashboard/allcars");
+        }
       });
   };
 
@@ -113,7 +127,7 @@ const navigate=useNavigate()
                 for="username-success"
                 className="block mb-2 text-lg font-medium text-green-700 dark:text-green-500"
               >
-                Luggages & Hand Bags
+                Hand Bags
               </label>
               <input
                 required
@@ -130,6 +144,25 @@ const navigate=useNavigate()
                 for="username-success"
                 className="block mb-2 text-lg font-medium text-green-700 dark:text-green-500"
               >
+                Luggages
+              </label>
+              <input
+                required
+                type="number"
+                name="luggages"
+                id="username-success"
+                className="bg-green-50 border border-green-500 text-green-900 placeholder-green-700 text-lg rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-5 dark:bg-green-100 dark:border-green-400"
+                placeholder="Luggages & Hand Bags : 2"
+              />
+            </div>
+          </div>
+
+          <div className="flex lg:flex-row flex-col justify-between items-center">
+            <div className="mb-6 w-full mx-2">
+              <label
+                for="username-success"
+                className="block mb-2 text-lg font-medium text-green-700 dark:text-green-500"
+              >
                 Price-per K.M
               </label>
               <input
@@ -141,9 +174,58 @@ const navigate=useNavigate()
                 placeholder="10"
               />
             </div>
+            <div className="mb-6 w-full mx-2">
+              <label
+                for="username-success"
+                className="block mb-2 text-lg font-medium text-green-700 dark:text-green-500"
+              >
+                Per Equipment price
+              </label>
+              <input
+                required
+                type="number"
+                name="Equipment"
+                id="username-success"
+                className="bg-green-50 border border-green-500 text-green-900 placeholder-green-700 text-lg rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-5 dark:bg-green-100 dark:border-green-400"
+                placeholder="10"
+              />
+            </div>
           </div>
+          <div className="flex lg:flex-row flex-col justify-between items-center">
+            <div className="mb-6 w-full mx-2">
+              <label
+                for="username-success"
+                className="block mb-2 text-lg font-medium text-green-700 dark:text-green-500"
+              >
+                Per Hand Bag Price
+              </label>
+              <input
+                required
+                type="number"
+                name="bagPrice"
+                id="username-success"
+                className="bg-green-50 border border-green-500 text-green-900 placeholder-green-700 text-lg rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-5 dark:bg-green-100 dark:border-green-400"
+                placeholder="Luggages & Hand Bags : 2"
+              />
+            </div>
 
-          <div></div>
+            <div className="mb-6 w-full mx-2">
+              <label
+                for="username-success"
+                className="block mb-2 text-lg font-medium text-green-700 dark:text-green-500"
+              >
+                Per Luggages Price
+              </label>
+              <input
+                required
+                type="number"
+                name="LuggagesPrice"
+                id="username-success"
+                className="bg-green-50 border border-green-500 text-green-900 placeholder-green-700 text-lg rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-5 dark:bg-green-100 dark:border-green-400"
+                placeholder="Luggages & Hand Bags : 2"
+              />
+            </div>
+          </div>
 
           {carimg && (
             <div className="flex justify-start items-center  w-52 ">

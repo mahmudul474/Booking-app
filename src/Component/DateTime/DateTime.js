@@ -22,54 +22,87 @@ function DateTime({selectedDate, setSelectedDate}) {
   //date input fielded
   function CustomInput(props) {
     return (
-      <div style={{ display: "flex",paddingRight:"24px", marginLeft:"24px", alignItems: "center", width:"full" }}>
-        <span style={{width:"40px" , height:"100%", alignItems:"center"  ,margin:"16px", borderRight:'1px solid black' , position:"absolute",paddingRight:"6px", paddingTop:"16px" }}><img src="https://i.ibb.co/7y66wZs/calendar-1.png"/></span>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          width: "full"
+        }}
+      >
+        <span
+          style={{
+            width: "40px",
+            height: "100%",
+            alignItems: "center",
+            margin: "16px",
+            borderRight: "1px solid black",
+            position: "absolute",
+            paddingRight: "6px",
+            paddingTop: "16px"
+          }}
+        >
+          <img src="https://i.ibb.co/7y66wZs/calendar-1.png" />
+        </span>
         <input
           style={{
-            paddingTop:"20px",
-            paddingBottom:"20px",
-            paddingLeft:"65px",
-            width:"100%",
-            fontWeight:"bold",
-            border:"1px solid black"
+            paddingTop: "20px",
+            paddingBottom: "20px",
+            paddingLeft: "65px",
+            width: "100%",
+            backgroundColor: "white",
+            fontWeight: "bold",
+            border: "1px solid black",
+            color: "black "
           }}
           type="text"
-          defaultValue={''} // Set the default value here
+          defaultValue={""} // Set the default value here
           {...props}
         />
-        {selectedDate && <FaTrash onClick={handleDelete} style={{ marginLeft: "5px", position:"absolute", right:"35", cursor: "pointer" }} />}
+        {selectedDate && (
+          <FaTrash
+            onClick={handleDelete}
+            style={{
+              marginLeft: "5px",
+              position: "absolute",
+              right: "35",
+              cursor: "pointer"
+            }}
+          />
+        )}
       </div>
     );
   }
-  
-
-
 
   ///calender designed
-    function calendarContainer({ children }) {
+  function calendarContainer({ children }) {
     return (
-      <div style={{  width:"100%" , marginLeft:"20px", display:"block" }}>
+      <div
+        style={{
+          width: "100%",
+          marginLeft: "20px",
+          display: "block"
+        }}
+      >
         {children}
       </div>
     );
   }
 
-
-//calender header
+  //calender header
   function renderCustomHeader({ date, decreaseMonth, increaseMonth }) {
     const monthName = date.toLocaleString("default", { month: "long" });
     const year = date.getFullYear();
 
     return (
-      <div className="custom-header">
+      <div className="custom-header ">
         <button className="prev-month-btn" onClick={decreaseMonth}>
-          <h1>Prev</h1>
+          <h1 className="text-black ">Prev</h1>
         </button>
         <div className="month-year">
           <span className="month">{monthName}</span>
           <span className="year">{year}</span>
         </div>
-        <button className="next-month-btn" onClick={increaseMonth}>
+        <button className="next-month-btn text-black" onClick={increaseMonth}>
           Next
         </button>
       </div>
@@ -78,27 +111,29 @@ function DateTime({selectedDate, setSelectedDate}) {
 
   const today = new Date();
   return (
-    <div>
+    <div style={{ backgroundColor: "white" }}>
       <DatePicker
-      minDate={today}
+        minDate={today}
         selected={selectedDate}
         onChange={handleDateChange}
         showTimeSelect
         timeFormat="HH:mm"
         timeIntervals={30}
         dateFormat="yyyy/MM/dd HH:mm"
-        placeholderText='Date & Time'
+        placeholderText="Date & Time"
         showPopperArrow={false}
         popperModifiers={{
           preventOverflow: {
             enabled: true,
             escapeWithReference: false,
-            boundariesElement: "viewport",
-          },
+            boundariesElement: "viewport"
+          }
         }}
-        customInput={<CustomInput value={selectedDate ? "just now" : ""} readOnly />}
-          calendarContainer={calendarContainer}
-             renderCustomHeader={renderCustomHeader}
+        customInput={
+          <CustomInput value={selectedDate ? "just now" : ""} readOnly />
+        }
+        calendarContainer={calendarContainer}
+        renderCustomHeader={renderCustomHeader}
       />
     </div>
   );

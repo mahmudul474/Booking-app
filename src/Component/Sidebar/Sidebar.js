@@ -5,9 +5,7 @@ import DataContext from "../../Context/BookingDataContex";
 import "./Sidebar.css";
 
 function Sidebar() {
-  const { data, category, userInfo, } = useContext(DataContext);
-
-     console.log(category)
+  const { data, category, userInfo } = useContext(DataContext);
 
   return (
     <div className="">
@@ -58,15 +56,9 @@ function Sidebar() {
             </div>
           </div>
         </div>
-         <hr/>
+        <hr />
 
-
-         <div className="mb-2">
-          Total : {category && category.price} $ 
-         </div>
-
-
-
+        <div className="mb-2">Total : {category && category.price} $</div>
       </div>
     </div>
   );

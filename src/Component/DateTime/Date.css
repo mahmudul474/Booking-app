@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   height: 60px;
-  background-color: #f8f8f8;
+  background-color: white;
   border-bottom: 1px solid #ccc;
 }
 
@@ -11,13 +11,14 @@
 .next-month-btn {
   background-color: transparent;
   border: none;
+  color: black;
   cursor: pointer;
   font-size: 18px;
 }
 
 .prev-month-btn:hover,
 .next-month-btn:hover {
-  color: #555;
+  color:black;
 }
 
 .month-year {
@@ -43,6 +44,6 @@
 
 }
 .react-datepicker__month-container {
-    background-color: #b0b3b1;
-     
+    background-color: #ffffff;
+   box-shadow: 10px 10px 8px #888888;
 }

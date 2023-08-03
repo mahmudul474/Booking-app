@@ -14,9 +14,9 @@ export default function ChaufferVehicles() {
   const [cars, setCars] = useState([]);
 
   useEffect(() => {
-    fetch("https://booking-server-devsobuj910.vercel.app/car")
-      .then((res) => res.json())
-      .then((data) => {
+    fetch(`${process.env.REACT_APP_API_URL}/car`)
+      .then(res => res.json())
+      .then(data => {
         setCars(data);
       });
   }, []);

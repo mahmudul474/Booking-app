@@ -2,15 +2,15 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-    border-top: 10px solid rgb(10, 51, 10);
-    padding-top: 15px;
+    border-top: 2px solid rgb(10, 51, 10);
+    padding-top: 18px;
     margin-top: 55px;
   }
   
   
    
   
-  .lines div {
+  .lines .item {
     background-color: rgb(10, 51, 10);
     font-weight: bold;
     color: #7ea5cc;

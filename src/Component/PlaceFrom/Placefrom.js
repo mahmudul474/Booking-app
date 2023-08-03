@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
-import { AiOutlineDown } from "react-icons/ai";
-import { ImLocation2 } from "react-icons/im";
+import { AiOutlineDown, AiOutlinePlusSquare } from "react-icons/ai";
+import { ImCancelCircle, ImLocation2 } from "react-icons/im";
 import { MdOutlineCancel } from "react-icons/md";
 import DateTime from "../DateTime/DateTime";
 import ReturnDate from "../DateTime/ReturnDate";
@@ -12,68 +12,57 @@ import { API_KEY, places } from "../../config";
 function Placefrom() {
   const navigate = useNavigate();
   const { data, setData } = useContext(DataContext);
- 
+
   const startLocation = data && data.origin;
   const endLocation = data && data.destination;
   const juernyDate = data && data.date;
-  
-
 
   //start locations
 
-  const [startLocationValue, setStartLocationValue] = useState( data && data.origin);
+  const [startLocationValue, setStartLocationValue] = useState(
+    data && data.origin
+  );
 
-
-
- 
-
-  const handleStartLocationChange = (event) => {
+  const handleStartLocationChange = event => {
     setStartLocationValue(event.target.value);
-   
   };
-
-
 
   //end locations
 
-  const [endLocationValue, setEndLocationValue] = useState(data && data.destination);
+  const [endLocationValue, setEndLocationValue] = useState(
+    data && data.destination
+  );
   const [showEndicon, showEndtlocationIcon] = useState(false);
 
-  const handleEndLocationChange = (event) => {
+  ///custom location
+  const [addLocationopen, setAddLocationOpen] = useState(false);
+  const [addloction, setaddLocationValue] = useState("");
+
+  const handleEndLocationChange = event => {
     setEndLocationValue(event.target.value);
     showEndtlocationIcon(true);
   };
-
-  
 
   //date  pick up date
   const dateObject = new Date(data && data.date);
   const dateString = dateObject.toLocaleString();
   const defaultDate = new Date(dateString && dateString);
 
-  const [startDate, setStartDate] = useState( data &&  data.date ? defaultDate :null);
+  const [startDate, setStartDate] = useState(
+    data && data.date ? defaultDate : null
+  );
 
   ///return date
 
+  const returndateObject = new Date(data && data.returnDate);
+  const returndateString = returndateObject.toLocaleDateString("en-US");
+  const returndefaultDate = new Date(returndateString && returndateString);
 
+  const [returnDate, setReturnDate] = useState(
+    data && data.returnDate ? returndefaultDate : null
+  );
 
-  
-
- 
-    const returndateObject = new Date(data && data.returnDate);
-    const returndateString = returndateObject.toLocaleDateString("en-US");
-    const returndefaultDate = new Date(returndateString  && returndateString );
-   
- 
-
-
-
-
-  
-  const [returnDate, setReturnDate] = useState(data && data.returnDate ? returndefaultDate: null );
-
-
-  console.log(returnDate)
+  console.log(returnDate);
   const [showreturndate, setShowReturndate] = useState(true);
 
   const handleReturndateOpen = () => {
@@ -96,12 +85,11 @@ function Placefrom() {
     setReturnDate(null);
     setShowReturndate(false);
     setWaitandReturnValue("wait and return");
-   
   };
 
   //save data
 
-  const handlesaveBookingData = (e) => {
+  const handlesaveBookingData = e => {
     const data = {
       origin: startLocationValue ? startLocationValue : startLocation,
       destination: endLocationValue ? endLocationValue : endLocation,
@@ -109,7 +97,7 @@ function Placefrom() {
       returnDate: returnDate ? returnDate.toLocaleString() : singelvalue,
       waitandReturn: waitandreturnValue ? waitandreturnValue : singelvalue,
       single: singelvalue && singelvalue,
-      bydefoultTrip: "single",
+      bydefoultTrip: "single"
     };
 
     setData(data);
@@ -117,7 +105,7 @@ function Placefrom() {
 
   const [selectedBtn, setSelectedBtn] = useState("single");
 
-  const handleClick = (btn) => {
+  const handleClick = btn => {
     setSelectedBtn(btn);
   };
 
@@ -125,7 +113,7 @@ function Placefrom() {
     <LoadScript googleMapsApiKey={API_KEY} libraries={places}>
       <div className=" ">
         <div className="my-9  ">
-          <div   >
+          <div>
             <div className=" px-6 m-auto">
               {/* first location */}
               <div className="relative my-5">
@@ -135,7 +123,7 @@ function Placefrom() {
                     type="text"
                     defaultValue={startLocation}
                     onBlur={handleStartLocationChange}
-                    className="border border-gray-400 rounded-sm   px-16 py-5  text-md font-bold   w-full"
+                    className="border border-gray-400 text-black  rounded-sm  bg-white  px-16 py-5  text-md font-bold   w-full"
                     placeholder="PICKUP ADDRESS"
                   />
                 </Autocomplete>
@@ -152,6 +140,43 @@ function Placefrom() {
                 </div>
               </div>
 
+              {addLocationopen && (
+                <div className="ml-14 mb-2">
+                  <div className="relative   ">
+                    <Autocomplete>
+                      <input
+                        required
+                        type="text"
+                        onBlur={e => {
+                          setaddLocationValue(e.target.value);
+                        }}
+                        className="border text-black border-gray-400 rounded-sm text-black   px-16 py-2  text-md   bg-white w-full"
+                        placeholder="Add location "
+                      />
+                    </Autocomplete>
+
+                    <div className="absolute inset-y-0 border border-gray-600  left-0 flex items-center px-2">
+                      <span className="w-10 h-10 m-auto  ">
+                        <img
+                          alt=""
+                          src="https://i.ibb.co/FhXTXP9/location.png"
+                        />
+                      </span>
+                    </div>
+                    <div
+                      onClick={() => {
+                        setAddLocationOpen(false);
+                        setaddLocationValue("");
+                      }}
+                      className="absolute cursor-pointer inset-y-0 right-0 flex items-center pr-3"
+                    >
+                      <span>
+                        <ImCancelCircle />
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              )}
               {/* seconde location */}
               <div className="relative my-5">
                 <Autocomplete>
@@ -160,14 +185,14 @@ function Placefrom() {
                     type="text"
                     defaultValue={endLocation}
                     onBlur={handleEndLocationChange}
-                    className="border border-gray-400 rounded-sm   px-16 py-5  text-md font-bold   w-full"
+                    className="border border-gray-400 text-black rounded-sm  bg-white  px-16 py-5  text-md font-bold   w-full"
                     placeholder="DESTINATION ADDRESS"
                   />
                 </Autocomplete>
 
                 <div className="absolute inset-y-0 border border-gray-600  left-0 flex items-center px-2">
                   <span className="w-10 h-10 m-auto  ">
-                    <img src="https://i.ibb.co/pyf6D9B/pin.png" alt=""/>
+                    <img src="https://i.ibb.co/pyf6D9B/pin.png" alt="" />
                   </span>
                 </div>
                 <div className="absolute inset-y-0 right-0 flex items-center pr-3">
@@ -179,7 +204,7 @@ function Placefrom() {
             </div>
 
             {/* start date */}
-            <div>
+            <div className="mx-6">
               <DateTime
                 selectedDate={startDate}
                 juernyDate={juernyDate}
@@ -199,7 +224,7 @@ function Placefrom() {
               </div>
             )}
 
-            <div className="my-5 mx-6">
+            <div className="my-5 mx-6   flex justify-between items-center">
               {/* btn grupe */}
               <div class=" flex flex-wrap  rounded-md  " role="group">
                 {selectedBtn === "single" ? (
@@ -253,12 +278,25 @@ function Placefrom() {
                   </button>
                 )}
               </div>
+
+              <div className=" flex justify-end items-center m-6">
+                <button
+                  onClick={() => setAddLocationOpen(true)}
+                  className="bg-green-950 flex items-center hover:bg-green-950 btn"
+                >
+                  <span className="mr-2">
+                    <AiOutlinePlusSquare></AiOutlinePlusSquare>
+                  </span>{" "}
+                  Add-location
+                </button>
+              </div>
             </div>
             <div className="flex justify-end items-end mr-5">
               <Link to="/booking/vehicle">
                 <button
-                disabled={startLocationValue==="" || endLocationValue===""} 
-                
+                  disabled={
+                    startLocationValue === "" || endLocationValue === ""
+                  }
                   className="btn bg-green-950 w-36 hover:bg-green-950  text-white font-bold capitalize"
                 >
                   NEXT
