@@ -38,6 +38,7 @@ const navigate=useNavigate()
     const carName = from.name.value;
     const seat = from.seat.value;
     const bag = from.bag.value;
+    const luggages = from.luggages.value
     const price = from.price.value;
     const equipmentPrice = from.Equipment.value;
     const bagPrice = from.bagPrice.value;
@@ -50,6 +51,7 @@ const navigate=useNavigate()
       carName,
       seat,
       bag,
+      luggages,
       price,
       carImg,
       equipmentPrice,

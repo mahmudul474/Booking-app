@@ -21,8 +21,6 @@ export default function ChaufferVehicles() {
       });
   }, []);
 
-  console.log(cars);
-
   return (
     <>
       <div className="flex justify-center  lg:flex-row xl:flex-row md:flex-row  flex-col items-center h-[500px] ">
@@ -47,7 +45,7 @@ export default function ChaufferVehicles() {
       </div>
 
       <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8  grid grid-cols-1 lg:grid-cols-2 gap-10">
-        {cars?.map((car) => (
+        {cars?.map(car => (
           <div key={car._id}>
             <div className=" bg-white border border-gray-200 rounded-lg shadow  ">
               <div className="my-5">
@@ -63,10 +61,12 @@ export default function ChaufferVehicles() {
 
                 <p className="mb-3 font-normal text-gray-700 ">
                   {car.about.slice(0, 160)} ....{" "}
-              <Link to={`/Chauffervehicles/${car._id}`}>   <span className="text-green-950 font-bold  cursor-pointer">
-                    Read-more
-                  </span>
-                  </Link> 
+                  <Link to={`/Chauffervehicles/${car._id}`}>
+                    {" "}
+                    <span className="text-green-950 font-bold  cursor-pointer">
+                      Read-more
+                    </span>
+                  </Link>
                 </p>
               </div>
 
@@ -131,9 +131,9 @@ export default function ChaufferVehicles() {
                 </div>
                 <div>
                   <Link to={`/Chauffervehicles/${car._id}`}>
-                  <button className="btn bg-transparent hover:bg-green-950   hover:text-white text-black">
-                    VIEW DETAILS
-                  </button>
+                    <button className="btn bg-transparent hover:bg-green-950   hover:text-white text-black">
+                      VIEW DETAILS
+                    </button>
                   </Link>
                 </div>
                 <div className="border-2 border-black  rounded-lg p-2">
@@ -147,9 +147,9 @@ export default function ChaufferVehicles() {
         ))}
       </div>
 
-      <div className="bg-green-950 my-10" >
-      <ProfationalDriver></ProfationalDriver>
-      <Sponser></Sponser>
+      <div className="bg-green-950 my-10">
+        <ProfationalDriver></ProfationalDriver>
+        <Sponser></Sponser>
       </div>
     </>
   );

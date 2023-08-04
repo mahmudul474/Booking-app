@@ -3,45 +3,55 @@ import { FaChevronDown, FaDog, FaTimes } from "react-icons/fa";
 import carIcon from "./img/car.png";
 import { BsChevronDown, BsCurrencyDollar, BsFillBagFill } from "react-icons/bs";
 import { MdAirlineSeatReclineNormal } from "react-icons/md";
-
-import { BiChild } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import { AiOutlineLeft } from "react-icons/ai";
 import DataContext from "../../Context/BookingDataContex";
+import perosnImg from "./img/person.png";
+import childIm from "./img/child.png";
+import bagImg from "./img/bag.png"
+import luggegeImg from "./img/luggage.png"
 
 function Vehicle() {
   const { setCategory } = useContext(DataContext);
 
   //bottom input
+  const [showDropdown1, setShowDropdown1] = useState(false);
+
+  const handleDropdownClick1 = () => {
+    setShowDropdown1(prevState => !prevState);
+  };
+  const [showDropdown2, setShowDropdown2] = useState(false);
+
+  const handleDropdownClick2 = () => {
+    setShowDropdown2(prevState => !prevState);
+  };
+
   const [isOpen3, setIsOpen3] = useState(false);
+  const [AdultOption, setAdultOption] = useState("");
+  const [smallChild, setSmallChild] = useState("");
+  const [BigChild, setBigChild] = useState("");
 
-  const [showDropdown, setShowDropdown] = useState(false);
-  const [inputValues, setInputValues] = useState({
-    input1: "",
-    input2: "",
-    input3: ""
-  });
-
-  const options = ["Option 1", "Option 2", "Option 3"];
-
-  const handleDropdownClick = () => {
-    setShowDropdown(prevState => !prevState);
+  const handleAdultChange = event => {
+    setAdultOption(event.target.value);
   };
 
-  const handleOptionClick = option => {
-    setInputValues({
-      input1: option,
-      input2: option,
-      input3: option
-    });
-    setShowDropdown(false);
+  const handleSmallChildChange = event => {
+    setSmallChild(event.target.value);
+  };
+  const handleBigChildChange = event => {
+    setBigChild(event.target.value);
   };
 
-  const handleInputChange = event => {
-    setInputValues({
-      ...inputValues,
-      [event.target.name]: event.target.value
-    });
+  ///handel  bage
+  const [bag, setBag] = useState("");
+  const [laggege, setLagge] = useState("");
+
+  const handleBagChange = event => {
+    setBag(event.target.value);
+  };
+
+  const handleLaggeChange = event => {
+    setLagge(event.target.value);
   };
 
   const handleToggle3 = () => {
@@ -52,10 +62,10 @@ function Vehicle() {
     setIsOpen3(false);
   };
 
+  ///defoult car
   const [isloading, setIsloading] = useState(false);
 
   const [places, setPlaces] = useState([]);
-
   useEffect(() => {
     setIsloading(true);
     fetch(`${process.env.REACT_APP_API_URL}/car`)
@@ -108,44 +118,233 @@ function Vehicle() {
         <span className="bg-orange-700  mt-3 w-14 h-[2px] block"></span>
       </div>
 
-      <div className="relative">
-        <div className="border relative p-5 mb-2 ">
-          {inputValues.input1} {inputValues.input2} {inputValues.input3}
-          <span className="absolute right- " onClick={handleDropdownClick}><BsChevronDown></BsChevronDown></span>
-        </div>
+      <div className="flex justify-between flex-col lg:flex-row items-center">
+        <div className="relative w-full ">
+          <div className="border  flex items-center justify-center flex-row p-2 mb-2 ">
+            <div className=" w-full flex justify-between items-center border-black">
+              <div className="flex items-center justify-center">
+                <span>
+                  <img src={perosnImg} />
+                </span>
+                {AdultOption ? AdultOption : defaultitem?.seat}
+              </div>
 
-        {showDropdown && (
-          <div className="absolute top-0 left-0 mt-12 z-50 w-40 border bg-white">
-            
-            <input
-              type="text"
-              className="p-2 mt-2 border w-full"
-              name="input1"
-              value={inputValues.input1}
-              onChange={handleInputChange}
-            />
-            <input
-              type="text"
-              className="p-2 mt-2 border w-full"
-              name="input2"
-              value={inputValues.input2}
-              onChange={handleInputChange}
-            />
-            <input
-              type="text"
-              className="p-2 mt-2 border w-full"
-              name="input3"
-              value={inputValues.input3}
-              onChange={handleInputChange}
-            />
+              {smallChild && (
+                <div className="flex items-center text-black justify-center">
+                  <span>
+                    <img src={childIm} />
+                  </span>
+                  {smallChild}
+                </div>
+              )}
+              {BigChild && (
+                <div className="flex items-center text-black justify-center">
+                  <span>
+                    <img src={childIm} />
+                  </span>
+                  {BigChild}
+                </div>
+              )}
+            </div>
+            <div>
+              <span
+                className="text-black  font-black  cursor-pointer "
+                onClick={handleDropdownClick1}
+              >
+                <BsChevronDown></BsChevronDown>
+              </span>
+            </div>
           </div>
-        )}
+
+          {showDropdown1 && (
+            <div className="absolute top-0 left-0 mt-12 z-50 w-full border bg-white">
+              <div className="p-3 ">
+                <h1 className="text-black ">Passengers</h1>
+                <div className="flex  justify-center  mt-3  items-center">
+                  <div className="w-1/2 flex items-center ">
+                    <span className="w-[40px] h-[40px]">
+                      <img
+                        className="w-full object-cover h-full"
+                        src={perosnImg}
+                      />
+                    </span>
+                    <label
+                      for="countries"
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    ></label>
+                    <select
+                      value={AdultOption}
+                      onChange={handleAdultChange}
+                      id="countries"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg     block w-full p-2.5     dark:focus:border-blue-500"
+                    >
+                      <option selected> {defaultitem?.seat}</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="0">9</option>
+                      <option value="10">10</option>
+                      <option value="11">11</option>
+                      <option value="12">12</option>
+                      <option value="13">13</option>
+                      <option value="14">14</option>
+                      <option value="15">15</option>
+                      <option value="16">16</option>
+                      <option value="17">17</option>
+                    </select>
+                  </div>
+                  <p className="text-black w-1/2     p-2"> Adults</p>
+                </div>
+
+                <div className="flex  justify-center  my-4 items-center">
+                  <div className="w-1/2 flex justify-center   items-center ">
+                    <span className="w-[40px] h-[40px]">
+                      <img
+                        className="w-full object-cover h-full"
+                        src={childIm}
+                      />
+                    </span>
+                    <label
+                      for="countries"
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    ></label>
+                    <select
+                      value={smallChild}
+                      onChange={handleSmallChildChange}
+                      id="countries"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg     block w-full p-2.5     dark:focus:border-blue-500"
+                    >
+                      <option selected>0</option>
+
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                    </select>
+                  </div>
+
+                  <p className="text-black w-1/2 p-2">3-6 years (15-25kg)</p>
+                </div>
+
+                <div className="flex  justify-center  items-center">
+                  <div className="w-1/2 flex justify-center  items-center">
+                    <span className="w-[40px] h-[40px]">
+                      <img
+                        className="w-full object-cover h-full"
+                        src={childIm}
+                      />
+                    </span>
+                    <label
+                      for="countries"
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    ></label>
+                    <select
+                      value={BigChild}
+                      onChange={handleBigChildChange}
+                      id="countries"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg     block w-full p-2.5     dark:focus:border-blue-500"
+                    >
+                      <option selected>0</option>
+
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                    </select>
+                  </div>
+
+                  <p className="text-black  w-1/2 p-2">6-12 years (22-36kg)</p>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+        <div className="relative w-full">
+          <div className="border  flex items-center justify-center flex-row p-2 mb-2 ">
+            <div className=" flex justify-flex justify-between  items-center w-full">
+              <div className="flex items-center text-black justify-center">
+                <span>
+                  <img src={bagImg} />
+                </span>
+                 {defaultitem?.bag}
+              </div>
+              <div className="flex items-center text-black justify-center">
+                <span>
+                  <img src={luggegeImg} />
+                </span>
+                {laggege ? laggege : defaultitem?.luggages}
+              </div>
+            </div>
+            <div>
+              <span
+                className=" cursor-pointer text-black "
+                onClick={handleDropdownClick2}
+              >
+                <BsChevronDown></BsChevronDown>
+              </span>
+            </div>
+          </div>
+
+          {showDropdown2 && (
+            <div className="absolute top-0 left-0 mt-12 z-50 w-full border bg-white">
+              <div className="p-3 ">
+                <h1 className="text-black "> </h1>
+                <div className="flex  justify-center   items-center">
+                  <div className="w-1/2">
+                    <label
+                      for="countries"
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    ></label>
+                    <select
+                      onChange={handleBagChange}
+                      value={bag}
+                      id="countries"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg     block w-full p-2.5     dark:focus:border-blue-500"
+                    >
+                      <option selected>bag</option>
+                      <option value="0">0</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                    </select>
+                  </div>
+                  <p className="text-black w-1/2 p-2"> Bags</p>
+                </div>
+
+                <div className="flex  justify-center  items-center">
+                  <div className="w-1/2">
+                    <label
+                      for="countries"
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    ></label>
+                    <select
+                      value={laggege}
+                      onChange={handleLaggeChange}
+                      id="countries"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg     block w-full p-2.5     dark:focus:border-blue-500"
+                    >
+                      <option selected>luggage</option>
+                      <option value="">0</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                    </select>
+                  </div>
+
+                  <p className="text-black w-1/2 p-2">luggage</p>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
       </div>
 
       {/*  bootom  input  */}
       <div className="relative w-full my-4">
         <button
-          className="bg-gray-100 w-full text-gray-800 font-semibold py-2 px-4 rounded justify-between  inline-flex items-center"
+          className="bg-gray-100 w-full text-black  font-semibold py-2 px-4 rounded justify-between  inline-flex items-center"
           onClick={handleToggle3}
         >
           {currentItem ? (
@@ -190,7 +389,7 @@ function Vehicle() {
                 <h1 className="text-center flex justify-center items-center  text-lg text-black capitalize">
                   <span className="w-[20px] h-[20px] mr-1">
                     <img
-                      className="w-full h-full object-contain  "
+                      className="w-full h-full text-black object-contain  "
                       src={carIcon}
                     />
                   </span>{" "}
@@ -232,31 +431,34 @@ function Vehicle() {
             <div className="h-56 overflow-y-scroll">
               {places?.map(item => (
                 <div
-                  onClick={() => handlePlaceSelect(item)}
-                  className="flex justify-between items-center my-5 bg-slate-100 p-2  text-lg  font-bold  px-5"
+                  onClick={() => {
+                    handlePlaceSelect(item);
+                    handleClose3();
+                  }}
+                  className="flex justify-between items-center    cursor-pointer border border-black bg-white   text-md px-5 my-5"
                   key={item._id}
                 >
                   <img
-                    className="w-14  rounded-lg h-14 object-cover"
+                    className="w-10  rounded-lg h-10 object-cover"
                     src={item.carImg && item.carImg}
                     alt=""
                   />
                   <div className="flex  justify-center items-center px-7">
-                    <p className="mr-10  "> {item.carName}</p>
-                    <p className="mr-10 flex items-center">
+                    <p className="mr-10  text-black "> {item.carName}</p>
+                    <p className="mr-10 flex text-black items-center">
                       {" "}
-                      <span>
+                      <span className="text-black">
                         <MdAirlineSeatReclineNormal></MdAirlineSeatReclineNormal>
                       </span>
                       {item.seat}
                     </p>
-                    <p className="mr-10 flex items-center  ">
-                      <span className="mr-2">
+                    <p className="mr-10 flex items-center text-black ">
+                      <span className="mr-2 text-black">
                         <BsFillBagFill></BsFillBagFill>{" "}
                       </span>{" "}
                       {item.bag}
                     </p>
-                    <p className="mr-10 flex items-center ">
+                    <p className="mr-10 flex  text-black items-center ">
                       {" "}
                       <span>
                         <BsCurrencyDollar></BsCurrencyDollar>
@@ -264,12 +466,6 @@ function Vehicle() {
                       {item.price}
                     </p>
                   </div>
-                  <button
-                    onClick={handleClose3}
-                    className=" text-white w-28 p-2 rounded-lg bg-green-950 hover:bg-green-950"
-                  >
-                    Select
-                  </button>
                 </div>
               ))}
             </div>
@@ -281,7 +477,7 @@ function Vehicle() {
 
         {currentItem ? (
           <div>
-            <div className="flex flex-col lg:flex-row h-48  border border-gray-500 ">
+            <div className="flex flex-col lg:flex-row h-48  border border-black ">
               <img
                 src={currentItem && currentItem.carImg}
                 alt="Img"
@@ -303,7 +499,7 @@ function Vehicle() {
                       {currentItem && currentItem.seat}
                     </p>
                     <p className="mr-10 flex items-center text-black ">
-                      <span className="mr-2">
+                      <span className="mr-2 text-black">
                         <BsFillBagFill></BsFillBagFill>{" "}
                       </span>{" "}
                       {currentItem && currentItem.bag}
@@ -315,7 +511,7 @@ function Vehicle() {
           </div>
         ) : (
           <div>
-            <div className="flex flex-col lg:flex-row h-30  border border-gray-500 ">
+            <div className="flex flex-col lg:flex-row h-30  border border-black ">
               <img
                 src={defaultitem && defaultitem.carImg}
                 alt="Img"
@@ -331,13 +527,13 @@ function Vehicle() {
                   <div className="flex  justify-center text-black items-center px-7">
                     <p className="mr-10 flex items-center">
                       {" "}
-                      <span>
+                      <span className="text-black">
                         <MdAirlineSeatReclineNormal></MdAirlineSeatReclineNormal>
                       </span>
                       {defaultitem && defaultitem.seat}
                     </p>
                     <p className="mr-10 flex text-black items-center  ">
-                      <span className="mr-2">
+                      <span className="mr-2 text-black">
                         <BsFillBagFill></BsFillBagFill>{" "}
                       </span>{" "}
                       {defaultitem && defaultitem.bag}
