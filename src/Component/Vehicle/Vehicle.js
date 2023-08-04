@@ -267,7 +267,7 @@ function Vehicle() {
                 <span>
                   <img src={bagImg} />
                 </span>
-                 {defaultitem?.bag}
+                {defaultitem?.bag}
               </div>
               <div className="flex items-center text-black justify-center">
                 <span>
@@ -353,7 +353,7 @@ function Vehicle() {
                 <h1 className="text-center  flex justify-start items-center   text-black  text-md capitalize">
                   <span className="w-[20px] h-[20px] mr-1">
                     <img
-                      className="w-full h-full object-contain  "
+                      className="w-full h-full object-cover  "
                       src={carIcon}
                     />
                   </span>{" "}
@@ -389,7 +389,7 @@ function Vehicle() {
                 <h1 className="text-center flex justify-center items-center  text-lg text-black capitalize">
                   <span className="w-[20px] h-[20px] mr-1">
                     <img
-                      className="w-full h-full text-black object-contain  "
+                      className="w-full h-full text-black object-cover  "
                       src={carIcon}
                     />
                   </span>{" "}
@@ -439,7 +439,7 @@ function Vehicle() {
                   key={item._id}
                 >
                   <img
-                    className="w-10  rounded-lg h-10 object-cover"
+                    className="w-10  rounded-lg h-10 object-contain"
                     src={item.carImg && item.carImg}
                     alt=""
                   />
@@ -481,7 +481,7 @@ function Vehicle() {
               <img
                 src={currentItem && currentItem.carImg}
                 alt="Img"
-                className="w-full h-30   pb-[2px] object-cover lg:w-1/4"
+                className="w-full h-30   pb-[2px] object-contain lg:w-1/4"
               />
 
               {/*car title */}
@@ -515,7 +515,7 @@ function Vehicle() {
               <img
                 src={defaultitem && defaultitem.carImg}
                 alt="Img"
-                className="w-full  h-48  pb-[2px] object-cover lg:w-1/4"
+                className="w-full  h-48  pb-[2px] object-contain lg:w-1/4"
               />
 
               {/*car title */}
