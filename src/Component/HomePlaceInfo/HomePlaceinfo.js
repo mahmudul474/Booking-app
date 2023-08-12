@@ -31,8 +31,10 @@ function HomePlaceinfo() {
   const handleReturndateOpen = () => {
     setShowReturndate(true);
   };
+
   //singeleTrip
   const [singelvalue, setSingelValue] = useState("");
+
   const handlesingleTrip = () => {
     setReturnDate(null);
     setShowReturndate(false);
@@ -65,9 +67,9 @@ function HomePlaceinfo() {
       date: startDate && startDate.toLocaleString(),
       returnDate: returnDate && returnDate.toLocaleString(),
       waitandReturn: waitandreturnValue ? waitandreturnValue : singelvalue,
-      single: singelvalue && singelvalue,
-      bydefoultTrip: "single"
+      single: singelvalue ? singelvalue : "single"
     };
+
     setData(data);
 
     if (startLocationValue === "") {
@@ -96,8 +98,16 @@ function HomePlaceinfo() {
       });
   }, [startLocationValue, endLocationValue]);
 
+  const customLoadingElement = (
+    <div className="text-center m-auto">loading...</div>
+  );
+
   return (
-    <LoadScript googleMapsApiKey={API_KEY} libraries={places}>
+    <LoadScript
+      googleMapsApiKey={API_KEY}
+      libraries={places}
+      loadingElement={customLoadingElement}
+    >
       <div className=" ">
         <div className="px-10">
           <BookingNav></BookingNav>
@@ -221,10 +231,10 @@ function HomePlaceinfo() {
               </div>
             )}
 
-            <div className="flex item-center justify-between ">
+            <div className="flex item-center  flex-col lg:flex-row justify-between ">
               <div className="my-5 mx-6">
                 {/* btn grupe */}
-                <div class=" flex flex-wrap  rounded-md  " role="group">
+                <div class=" flex   rounded-md  " role="group">
                   {selectedBtn === "single" ? (
                     <button className="btn mr-2 p-3 my-2 bg-green-950 hover:bg-green-700">
                       {" "}
@@ -293,8 +303,11 @@ function HomePlaceinfo() {
             <div className="flex justify-end items-end mr-5">
               {defoultCar && (
                 <p className="text-xl   text-black  capitalize mr-4">
-                  {" "}
-                  Price: {defoultCar.price} ${" "}
+                  {selectedBtn === "wait" || selectedBtn === "return" ? (
+                    <>Price: {defoultCar.price * 2 + "$"}?</>
+                  ) : (
+                    <>Price: {defoultCar.price + "$"}?</>
+                  )}
                 </p>
               )}
 

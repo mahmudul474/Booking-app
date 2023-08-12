@@ -60,7 +60,7 @@ export default function ChaufferVehicles() {
                 </h5>
 
                 <p className="mb-3 font-normal text-gray-700 ">
-                  {car.about.slice(0, 160)} ....{" "}
+                  {car?.about?.slice(0, 160)} ....{" "}
                   <Link to={`/Chauffervehicles/${car._id}`}>
                     {" "}
                     <span className="text-green-950 font-bold  cursor-pointer">

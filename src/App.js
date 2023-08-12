@@ -8,14 +8,10 @@ import { loadState, saveState } from "./utilitis";
 import { Toaster } from "react-hot-toast";
 
 function App() {
-    const [data, setData] = useState(null);
+  const [data, setData] = useState(null);
   const [category, setCategory] = useState(null);
   const [userInfo, setUserInfo] = useState(null);
-     const [distance,setDistance]=useState(null)
- 
-   
- console.log(data ,"inside app")
-
+  const [distance, setDistance] = useState(null);
 
   useEffect(() => {
     const initialState = loadState();
@@ -25,25 +21,30 @@ function App() {
       setUserInfo(initialState.userInfo);
     }
   }, []);
- //chekc data 
+  //chekc data
 
   // Save the state to localStorage whenever it changes
   useEffect(() => {
-  if(data===null && category===null && userInfo === null){
-    console.log("please provide data")
-  }else{
-saveState({ data, category, userInfo });
-  }
-
-    
+    if (data === null && category === null && userInfo === null) {
+      console.log("please provide data");
+    } else {
+      saveState({ data, category, userInfo });
+    }
   }, [data, category, userInfo]);
 
-
- 
   return (
     <div className="m-auto bg-white">
       <DataContext.Provider
-        value={{ data, setData, category, setCategory, userInfo, setUserInfo ,distance,setDistance}}
+        value={{
+          data,
+          setData,
+          category,
+          setCategory,
+          userInfo,
+          setUserInfo,
+          distance,
+          setDistance
+        }}
       >
         <RouterProvider router={routers}></RouterProvider>
         <Toaster />

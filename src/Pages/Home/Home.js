@@ -16,7 +16,7 @@ function Home() {
 
   return (
     <>
-      <div className="flex justify-center  lg:flex-row xl:flex-row md:flex-row  flex-col items-center h-[500px] ">
+      <div className="flex justify-center  lg:flex-row xl:flex-row md:flex-row  flex-col items-center h-screen  lg:h-[500px] ">
         <div className="w-full hidden lg:block md:block xl:block 2xl:block border-emerald-700">
           <AutoSlider></AutoSlider>
         </div>
@@ -38,21 +38,19 @@ function Home() {
         <OurBenifits></OurBenifits>
       </div>
 
-       <div>
+      <div>
         <WhyChooseUs></WhyChooseUs>
-       </div>
+      </div>
 
-     <div className="   my-16 py-16  ">
-      <BookyoureCar></BookyoureCar>
-     </div>
-     <div className="">
-  <ReviewSlider></ReviewSlider>
-     </div>
-     <div>
-      <Sponser></Sponser>
-     </div>
-
-
+      <div className="   my-16 py-16  ">
+        <BookyoureCar></BookyoureCar>
+      </div>
+      <div className="">
+        <ReviewSlider></ReviewSlider>
+      </div>
+      <div>
+        <Sponser></Sponser>
+      </div>
     </>
   );
 }

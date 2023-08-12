@@ -119,12 +119,14 @@ function ReturnDate({selectedDate, setSelectedDate}) {
           preventOverflow: {
             enabled: true,
             escapeWithReference: false,
-            boundariesElement: "viewport",
-          },
+            boundariesElement: "viewport"
+          }
         }}
-        customInput={<CustomInput value={selectedDate ? "just now" : ""} readOnly />}
-          calendarContainer={calendarContainer}
-             renderCustomHeader={renderCustomHeader}
+        customInput={
+          <CustomInput value={selectedDate ? selectedDate : ""} readOnly />
+        }
+        calendarContainer={calendarContainer}
+        renderCustomHeader={renderCustomHeader}
       />
     </div>
   );

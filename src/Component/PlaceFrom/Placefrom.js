@@ -12,6 +12,7 @@ import { API_KEY, places } from "../../config";
 function Placefrom() {
   const navigate = useNavigate();
   const { data, setData } = useContext(DataContext);
+  console.log(data, "this  is data");
 
   const startLocation = data && data.origin;
   const endLocation = data && data.destination;
@@ -33,9 +34,9 @@ function Placefrom() {
     data && data.destination
   );
   const [showEndicon, showEndtlocationIcon] = useState(false);
-
   ///custom location
   const [addLocationopen, setAddLocationOpen] = useState(false);
+
   const [addloction, setaddLocationValue] = useState("");
 
   const handleEndLocationChange = event => {
@@ -62,8 +63,9 @@ function Placefrom() {
     data && data.returnDate ? returndefaultDate : null
   );
 
-  console.log(returnDate);
-  const [showreturndate, setShowReturndate] = useState(true);
+  const [showreturndate, setShowReturndate] = useState(
+    data?.returnDate ? true : false
+  );
 
   const handleReturndateOpen = () => {
     setShowReturndate(true);
@@ -103,7 +105,7 @@ function Placefrom() {
     setData(data);
   };
 
-  const [selectedBtn, setSelectedBtn] = useState("single");
+  const [selectedBtn, setSelectedBtn] = useState(data?.selectedBtn);
 
   const handleClick = btn => {
     setSelectedBtn(btn);
@@ -224,9 +226,9 @@ function Placefrom() {
               </div>
             )}
 
-            <div className="my-5 mx-6   flex justify-between items-center">
+            <div className="my-5 mx-6   flex-col lg:flex-row  flex justify-between items-center">
               {/* btn grupe */}
-              <div class=" flex flex-wrap  rounded-md  " role="group">
+              <div class=" flex    rounded-md  " role="group">
                 {selectedBtn === "single" ? (
                   <button className="btn mr-2  my-2 bg-green-950 hover:bg-green-700">
                     {" "}
@@ -279,7 +281,7 @@ function Placefrom() {
                 )}
               </div>
 
-              <div className=" flex justify-end items-center m-6">
+              <div className=" flex justify-end items-end m-6">
                 <button
                   onClick={() => setAddLocationOpen(true)}
                   className="bg-green-950 flex items-center hover:bg-green-950 btn"
@@ -294,6 +296,7 @@ function Placefrom() {
             <div className="flex justify-end items-end mr-5">
               <Link to="/booking/vehicle">
                 <button
+                  onClick={handlesaveBookingData}
                   disabled={
                     startLocationValue === "" || endLocationValue === ""
                   }
